@@ -3150,6 +3150,324 @@ html.mobile-device .desktop-nav{
   }
 }
 
+
+/* =========================================================
+   ABOUT + NICOLAS / REFERENCE MATCH
+   参考画像の比率・文字サイズ・余白感に寄せる最終上書き
+   ========================================================= */
+
+/* ---------- PC / 横長画面 ---------- */
+@media (min-width:901px){
+  .home-bottom-row{
+    width:min(1320px, calc(100% - 72px)) !important;
+    margin-inline:auto !important;
+    display:grid !important;
+    grid-template-columns:minmax(0, 1.22fr) minmax(0, .78fr) !important;
+    gap:68px !important;
+    align-items:start !important;
+    padding:50px 0 58px !important;
+  }
+
+  .home-about-card{
+    display:grid !important;
+    grid-template-columns:minmax(220px, 290px) minmax(0, 1fr) !important;
+    gap:50px !important;
+    align-items:start !important;
+    padding:0 !important;
+    margin:0 !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+
+  .home-about-image{
+    width:100% !important;
+    max-width:290px !important;
+    aspect-ratio:1 / 1 !important;
+    margin:0 !important;
+    overflow:hidden !important;
+  }
+
+  .home-about-image img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center !important;
+    transform:none !important;
+  }
+
+  .home-about-body{
+    padding-top:4px !important;
+  }
+
+  .home-section-kicker{
+    margin:0 0 28px !important;
+    gap:16px !important;
+    font-size:.78rem !important;
+    font-weight:800 !important;
+    letter-spacing:.30em !important;
+    line-height:1 !important;
+  }
+
+  .home-section-kicker::after{
+    width:72px !important;
+    height:1px !important;
+    background:#b7b7b7 !important;
+  }
+
+  .home-about-ja{
+    margin:0 0 22px !important;
+    font-size:1.02rem !important;
+    line-height:2 !important;
+    letter-spacing:.08em !important;
+    font-weight:400 !important;
+  }
+
+  .home-about-en{
+    margin:0 !important;
+    max-width:390px !important;
+    font-size:.84rem !important;
+    line-height:1.85 !important;
+    letter-spacing:.035em !important;
+    color:#4f4f4f !important;
+  }
+
+  .home-about-link{
+    margin-top:24px !important;
+    font-size:.72rem !important;
+    font-weight:800 !important;
+    letter-spacing:.22em !important;
+  }
+
+  .home-name-block{
+    margin:0 !important;
+    padding:22px 0 0 !important;
+    min-height:260px !important;
+    display:grid !important;
+    grid-template-rows:auto 1fr !important;
+    align-content:start !important;
+  }
+
+  .home-name-logo{
+    margin:0 !important;
+    font-size:3.3rem !important;
+    line-height:1 !important;
+    font-weight:300 !important;
+    letter-spacing:.34em !important;
+    white-space:nowrap !important;
+  }
+
+  .home-name-sub{
+    margin-top:26px !important;
+    display:grid !important;
+    grid-template-columns:1fr 1fr auto !important;
+    gap:22px !important;
+    align-items:center !important;
+  }
+
+  .home-name-sub .line{
+    display:block !important;
+    height:1px !important;
+    background:#b8b8b8 !important;
+  }
+
+  .home-name-sub p{
+    margin:0 !important;
+    font-size:.67rem !important;
+    letter-spacing:.24em !important;
+    color:#555 !important;
+  }
+
+  .home-name-block > div:last-child{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) auto !important;
+    gap:26px !important;
+    align-items:start !important;
+    margin-top:32px !important;
+  }
+
+  #homeNameSubcopy{
+    display:block !important;
+    margin:0 !important;
+    font-size:.74rem !important;
+    line-height:1.85 !important;
+    letter-spacing:.18em !important;
+    color:#3e3e3e !important;
+  }
+
+  .home-name-tags{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:11px !important;
+    justify-items:start !important;
+    text-align:left !important;
+    margin:0 !important;
+    min-width:150px !important;
+  }
+
+  .home-name-tags span{
+    font-size:.60rem !important;
+    line-height:1.35 !important;
+    letter-spacing:.20em !important;
+    color:#555 !important;
+  }
+}
+
+/* ---------- スマホ / 縦長画面 ----------
+   参考画像の雰囲気を保ちつつ、読みやすい縮小版にする */
+@media (max-width:900px){
+  .home-bottom-row{
+    width:calc(100% - 32px) !important;
+    margin-inline:auto !important;
+    display:block !important;
+    padding:30px 0 34px !important;
+  }
+
+  .home-about-card{
+    display:grid !important;
+    grid-template-columns:clamp(92px, 29vw, 124px) minmax(0,1fr) !important;
+    gap:18px !important;
+    align-items:start !important;
+    padding:0 !important;
+    margin:0 !important;
+  }
+
+  .home-about-image{
+    width:100% !important;
+    aspect-ratio:1 / 1 !important;
+    margin:0 !important;
+  }
+
+  .home-about-image img{
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+    object-position:center !important;
+    transform:none !important;
+  }
+
+  .home-about-body{
+    padding-top:1px !important;
+  }
+
+  .home-section-kicker{
+    margin:0 0 15px !important;
+    gap:10px !important;
+    font-size:.60rem !important;
+    letter-spacing:.28em !important;
+    line-height:1 !important;
+  }
+
+  .home-section-kicker::after{
+    width:44px !important;
+  }
+
+  .home-about-ja{
+    margin:0 0 13px !important;
+    font-size:.72rem !important;
+    line-height:1.9 !important;
+    letter-spacing:.055em !important;
+  }
+
+  .home-about-en{
+    margin:0 !important;
+    font-size:.63rem !important;
+    line-height:1.75 !important;
+    letter-spacing:.02em !important;
+    color:#555 !important;
+  }
+
+  .home-about-link{
+    margin-top:14px !important;
+    font-size:.58rem !important;
+    letter-spacing:.20em !important;
+  }
+
+  .home-name-block{
+    margin:44px 0 0 !important;
+    padding:0 !important;
+    min-height:0 !important;
+  }
+
+  .home-name-logo{
+    margin:0 !important;
+    font-size:clamp(2.05rem, 10vw, 2.9rem) !important;
+    line-height:1 !important;
+    font-weight:300 !important;
+    letter-spacing:.28em !important;
+    white-space:nowrap !important;
+  }
+
+  .home-name-sub{
+    margin-top:20px !important;
+    display:grid !important;
+    grid-template-columns:1fr auto !important;
+    gap:14px !important;
+    align-items:center !important;
+  }
+
+  .home-name-sub .line:first-child{
+    display:block !important;
+  }
+
+  .home-name-sub .line:nth-child(2){
+    display:none !important;
+  }
+
+  .home-name-sub p{
+    font-size:.58rem !important;
+    letter-spacing:.22em !important;
+  }
+
+  .home-name-block > div:last-child{
+    display:block !important;
+    margin-top:24px !important;
+  }
+
+  #homeNameSubcopy{
+    display:block !important;
+    margin:0 !important;
+    font-size:.62rem !important;
+    line-height:1.7 !important;
+    letter-spacing:.17em !important;
+  }
+
+  .home-name-tags{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:10px 18px !important;
+    justify-content:flex-start !important;
+    margin-top:20px !important;
+    text-align:left !important;
+  }
+
+  .home-name-tags span{
+    font-size:.53rem !important;
+    letter-spacing:.17em !important;
+    line-height:1.25 !important;
+  }
+}
+
+@media (max-width:430px){
+  .home-about-card{
+    grid-template-columns:98px minmax(0,1fr) !important;
+    gap:16px !important;
+  }
+
+  .home-about-ja{
+    font-size:.69rem !important;
+  }
+
+  .home-about-en{
+    font-size:.60rem !important;
+  }
+
+  .home-name-logo{
+    font-size:2rem !important;
+    letter-spacing:.24em !important;
+  }
+}
+
 </style>
 </head>
 
