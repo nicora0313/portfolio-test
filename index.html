@@ -1,0 +1,4906 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NICOLAS | PORTFOLIO</title>
+
+
+  <!-- ===== OGP / SNS LINK PREVIEW =====
+       X / Discord / LINE 等のSNSカード用
+       テスト中は canonical / og:url を入れず、
+       URL末尾の ?card=数字 で新規取得しやすくしています。
+  -->
+  <meta name="description" content="Illustration / Character Design / Original Works">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+
+  <meta property="og:site_name" content="NICOLAS PORTFOLIO">
+  <meta property="og:title" content="NICOLAS | PORTFOLIO">
+  <meta property="og:description" content="Illustration / Character Design / Original Works">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://nicora0313.github.io/portfolio-test/ogp.jpg?v=8">
+  <meta property="og:image:secure_url" content="https://nicora0313.github.io/portfolio-test/ogp.jpg?v=8">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="NICOLAS PORTFOLIO">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NICOLAS | PORTFOLIO">
+  <meta name="twitter:description" content="Illustration / Character Design / Original Works">
+  <meta name="twitter:image" content="https://nicora0313.github.io/portfolio-test/ogp.jpg?v=8">
+  <meta name="twitter:image:src" content="https://nicora0313.github.io/portfolio-test/ogp.jpg?v=8">
+  <meta name="twitter:image:alt" content="NICOLAS PORTFOLIO">
+
+<style>
+/* =========================================================
+   ★ デザイン設定
+   色を変えたいときは、まずここだけ触ればOKです。
+   ========================================================= */
+:root {
+  --main-color: #2f6bff;   /* ★ メインカラー */
+  --black: #111111;
+  --paper: #f7f7f5;
+  --white: #ffffff;
+  --gray: #777777;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  background:var(--paper);
+  color:var(--black);
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+img{max-width:100%;display:block}
+
+.topbar{
+  position:sticky;top:0;z-index:20;height:82px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 18px;background:rgba(247,247,245,.96);
+}
+.brand{font-size:.82rem;font-weight:900;letter-spacing:.15em}
+.menu-btn{border:0;background:transparent;display:grid;justify-items:center;gap:4px;cursor:pointer}
+.hamb{width:38px;display:grid;gap:5px}
+.hamb span{height:6px;background:var(--main-color);border-radius:999px}
+.menu-label{font-weight:900;font-size:.92rem}
+
+.overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.68);
+  opacity:0;pointer-events:none;transition:.25s;z-index:40;
+}
+.overlay.open{opacity:1;pointer-events:auto}
+
+.drawer{
+  position:fixed;top:0;right:0;width:min(82vw,520px);height:100dvh;
+  background:var(--main-color);transform:translateX(105%);
+  transition:.35s;z-index:50;display:flex;flex-direction:column;
+}
+.drawer.open{transform:translateX(0)}
+.close{
+  align-self:flex-end;width:92px;height:92px;border:0;background:#fff;
+  border-radius:0 0 0 24px;font-size:2.6rem;font-weight:900;cursor:pointer;
+}
+.drawer nav{margin:auto 0;display:grid;gap:26px;justify-items:center}
+.navitem{text-align:center;font-size:1rem;font-weight:900;letter-spacing:.22em}
+.barcode{
+  width:132px;height:31px;margin:0 auto 4px;
+  background:repeating-linear-gradient(
+    90deg,#111 0 4px,transparent 4px 7px,#111 7px 12px,
+    transparent 12px 16px,#111 16px 20px,transparent 20px 23px
+  );
+}
+.socials{display:flex;gap:12px;justify-content:center;padding-bottom:40px}
+.social{
+  width:58px;height:58px;background:#111;color:#fff;border-radius:14px;
+  display:grid;place-items:center;font-weight:900;font-size:1.25rem;
+}
+
+.wrap{width:min(1100px,calc(100% - 28px));margin:auto}
+.view{display:none;animation:fade .22s ease}
+.view.active{display:block}
+@keyframes fade{from{opacity:.2;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+.section{padding:30px 0 80px}
+.section-head{display:flex;align-items:center;margin:10px 0 52px}
+.dot{width:82px;height:82px;border-radius:50%;background:var(--main-color);flex:0 0 auto}
+.title{
+  margin:0 0 0 -35px;font-size:clamp(2.3rem,10vw,5.6rem);
+  letter-spacing:-.06em;line-height:.9;
+}
+
+
+/* ===== HOME / COMMERCIAL ILLUSTRATOR STYLE ===== */
+.home-cover{
+  position:relative;
+  min-height:calc(100dvh - 82px);
+  display:flex;
+  flex-direction:column;
+  gap:34px;
+  padding:34px 0 72px;
+}
+
+/* ---- メインビジュアル ---- */
+.home-visual{
+  position:relative;
+  overflow:hidden;
+  background:#111;
+  border:1px solid #111;
+  box-shadow:0 18px 42px rgba(17,17,17,.08);
+}
+
+.home-visual-bg,
+.home-visual-label{
+  display:none;
+}
+
+/* 黒帯：上 */
+.home-visual-topbar{
+  min-height:54px;
+  padding:0 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  background:#111;
+  color:#fff;
+  font-size:.63rem;
+  font-weight:900;
+  letter-spacing:.20em;
+}
+
+.home-visual-topbar span:last-child{
+  color:#d8d8d8;
+}
+
+/* 中央：作品 */
+.home-slider{
+  position:relative;
+  width:100%;
+  aspect-ratio:16 / 10;
+  overflow:hidden;
+  background:#f5f5f3;
+}
+
+.home-slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transform:scale(1.01);
+  transition:
+    opacity 1.7s ease-in-out,
+    transform 2.2s ease-in-out;
+  display:grid;
+  place-items:center;
+  pointer-events:none;
+}
+
+.home-slide.active{
+  opacity:1;
+  transform:scale(1);
+  pointer-events:auto;
+}
+
+.home-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  display:block;
+}
+
+.home-placeholder{
+  width:100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+  background:
+    linear-gradient(120deg,#f7f7f4 0 42%,#e6ebf1 42% 60%,var(--main-color) 60%);
+  color:#111;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.18em;
+}
+
+/* 黒帯：下 */
+.home-slider-ui{
+  position:relative;
+  inset:auto;
+  z-index:7;
+  min-height:58px;
+  padding:0 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  background:#111;
+}
+
+.home-slider-dots{
+  display:flex;
+  gap:10px;
+}
+
+.home-slider-dot{
+  width:10px;
+  height:10px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:#363636;
+  cursor:pointer;
+  transition:.18s ease;
+}
+
+.home-slider-dot.active{
+  background:var(--main-color);
+  transform:scale(1.18);
+}
+
+.home-slider-count{
+  padding:0;
+  background:transparent;
+  color:#fff;
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.16em;
+}
+
+/* ---- 作家情報 ---- */
+.home-copy{
+  position:relative;
+  z-index:3;
+  padding:0 4px 12px;
+}
+
+.home-title{
+  margin:0;
+  font-size:clamp(5rem,16vw,10rem);
+  line-height:.76;
+  letter-spacing:-.095em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.home-title span{
+  display:inline;
+  margin:0;
+  color:var(--main-color);
+}
+
+.home-eyebrow{
+  margin:24px 0 0;
+  color:#222;
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.22em;
+}
+
+.home-description{
+  max-width:720px;
+  margin:34px 0 0;
+  color:#272727;
+  line-height:1.85;
+  font-size:.95rem;
+}
+
+.home-meta{
+  width:100%;
+  margin-top:34px;
+}
+
+.home-meta-line{
+  height:2px;
+  background:#111;
+}
+
+.home-meta-text{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:13px;
+  font-size:.66rem;
+  font-weight:900;
+  letter-spacing:.18em;
+  color:#4d4d4d;
+}
+
+.home-scroll-mark{
+  display:none;
+}
+
+@media(max-width:819px){
+  .home-cover{
+    padding-top:24px;
+    gap:28px;
+  }
+
+  .home-slider{
+    aspect-ratio:4 / 3;
+  }
+
+  .home-title{
+    font-size:clamp(4.7rem,19vw,7.2rem);
+  }
+
+  .home-description{
+    max-width:620px;
+  }
+}
+
+@media(max-width:480px){
+  .home-cover{
+    width:min(100% - 20px,1100px);
+    padding-top:20px;
+    padding-bottom:48px;
+    gap:28px;
+  }
+
+  .home-visual-topbar{
+    min-height:48px;
+    padding:0 14px;
+    font-size:.56rem;
+  }
+
+  .home-slider{
+    aspect-ratio:4 / 3;
+  }
+
+  .home-slider-ui{
+    min-height:52px;
+    padding:0 14px;
+  }
+
+  .home-slider-dot{
+    width:9px;
+    height:9px;
+  }
+
+  .home-slider-count{
+    font-size:.61rem;
+  }
+
+  .home-title{
+    font-size:clamp(4.2rem,18.5vw,6.4rem);
+  }
+
+  .home-eyebrow{
+    margin-top:20px;
+    font-size:.59rem;
+    letter-spacing:.18em;
+  }
+
+  .home-description{
+    margin-top:28px;
+    font-size:.83rem;
+    line-height:1.9;
+  }
+
+  .home-meta{
+    margin-top:30px;
+  }
+}
+
+.char-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:26px 20px;width:min(720px,100%);margin:auto;
+}
+.char{display:grid;justify-items:center;text-align:center;cursor:pointer}
+
+/* キャラ一覧アイコン
+   ・黒い丸枠なし
+   ・透過PNG / WebPの形をそのまま表示
+   ・参考画像のように少し小さめ
+*/
+.avatar{
+  width:clamp(120px,28vw,160px);
+  aspect-ratio:1;
+  background:transparent;
+  border:0;
+  outline:0;
+  border-radius:0;
+  overflow:visible;
+  display:grid;
+  place-items:center;
+  filter:drop-shadow(0 6px 5px rgba(0,0,0,.16));
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+
+.avatar svg{
+  width:100%;
+  height:100%;
+}
+
+.char b{margin-top:8px;letter-spacing:.14em}
+.char small{color:#777}
+
+/* ===== CHARACTER GROUP TABS ===== */
+.character-group-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  width:min(720px,100%);
+  margin:0 auto 12px;
+  border-top:1px solid #d5d5d5;
+  border-bottom:1px solid #d5d5d5;
+}
+
+.character-group-tab{
+  position:relative;
+  min-height:62px;
+  padding:0 14px;
+  border:0;
+  background:transparent;
+  color:#8b8b8b;
+  font:inherit;
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  cursor:pointer;
+}
+
+.character-group-tab + .character-group-tab{
+  border-left:1px solid #d5d5d5;
+}
+
+.character-group-tab.active{
+  color:#111;
+}
+
+.character-group-tab.active::after{
+  content:"";
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:-1px;
+  height:4px;
+  background:var(--main-color);
+}
+
+/* ===== OC CATEGORY TABS ===== */
+.character-category-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  width:min(720px,100%);
+  margin:0 auto 34px;
+  border:1px solid #d5d5d5;
+}
+
+.character-category-tabs[hidden]{
+  display:none !important;
+}
+
+.character-category-tab{
+  position:relative;
+  min-height:62px;
+  padding:0 14px;
+  border:0;
+  background:transparent;
+  color:#8b8b8b;
+  font:inherit;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  cursor:pointer;
+}
+
+.character-category-tab + .character-category-tab{
+  border-left:1px solid #d5d5d5;
+}
+
+.character-category-tab.active{
+  color:#111;
+}
+
+.character-category-tab.active::after{
+  content:"";
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:-1px;
+  height:4px;
+  background:var(--main-color);
+}
+
+.character-category-empty{
+  grid-column:1/-1;
+  padding:70px 20px;
+  text-align:center;
+  font-size:.7rem;
+  font-weight:900;
+  letter-spacing:.14em;
+  color:#888;
+}
+
+@media(max-width:430px){
+  .character-group-tabs{
+    margin-bottom:10px;
+  }
+
+  .character-group-tab{
+    min-height:56px;
+    font-size:.76rem;
+  }
+
+  .character-category-tabs{
+    margin-bottom:28px;
+  }
+
+  .character-category-tab{
+    min-height:58px;
+    padding:0 8px;
+    font-size:.62rem;
+    letter-spacing:.05em;
+  }
+}
+
+.detail{display:grid;gap:28px}
+.fullbody{
+  min-height:610px;background:#fff;border:1px solid #e5e5e5;
+  display:grid;place-items:end center;overflow:hidden;
+}
+.fullbody img{width:100%;height:100%;object-fit:contain}
+.fullbody svg{width:88%;max-width:560px}
+.profile h2{
+  font-size:clamp(3.2rem,14vw,6rem);
+  margin:0;line-height:.85;letter-spacing:-.06em;
+}
+.jp{font-weight:900;letter-spacing:.14em;color:#666;margin:8px 0 25px}
+.specs{border-top:2px solid #111;display:grid;grid-template-columns:1fr 1fr}
+.spec{padding:13px 0;border-bottom:1px solid #ccc}
+.spec b{display:block;font-size:.7rem;letter-spacing:.15em}
+.profile-text{line-height:1.9}
+.back{display:inline-flex;gap:8px;align-items:center;font-weight:900;letter-spacing:.08em;margin-bottom:24px}
+.back::before{content:"←";color:var(--main-color);font-size:1.4rem}
+
+/* ===== ILLUSTRATION GALLERY ===== */
+.works{
+  display:block;
+}
+
+.illustration-gallery{
+  display:grid;
+  gap:20px;
+}
+
+.illustration-main{
+  position:relative;
+  width:100%;
+  height:520px;
+  min-height:520px;
+  background:#111;
+  border:1px solid #dcdcdc;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  cursor:zoom-in;
+  box-shadow:0 14px 34px rgba(0,0,0,.08);
+}
+
+#illustrationMainVisual{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  min-width:0;
+  min-height:0;
+  overflow:hidden;
+  display:block;
+}
+
+.illustration-main img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center center;
+  display:block;
+}
+
+.illustration-main-placeholder{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  min-width:0;
+  min-height:0;
+  display:grid;
+  place-items:center;
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb,var(--main-color) 82%,white),
+      #111);
+}
+
+.illustration-main-placeholder .shape{
+  width:min(34vw,230px);
+  aspect-ratio:1;
+  border-radius:50%;
+  background:#111;
+  outline:2px solid rgba(255,255,255,.18);
+}
+
+.illustration-main-meta{
+  position:absolute;
+  left:16px;
+  bottom:16px;
+  z-index:4;
+  display:grid;
+  gap:2px;
+  padding:10px 12px;
+  background:rgba(17,17,17,.86);
+  color:#fff;
+  pointer-events:none;
+}
+
+.illustration-main-meta b{
+  font-size:.86rem;
+  letter-spacing:.08em;
+}
+
+.illustration-main-meta small{
+  color:#bbb;
+}
+
+.illustration-main-hint{
+  position:absolute;
+  right:14px;
+  top:14px;
+  z-index:4;
+  padding:7px 9px;
+  background:rgba(255,255,255,.90);
+  color:#111;
+  border:1px solid rgba(17,17,17,.12);
+  font-size:.54rem;
+  font-weight:900;
+  letter-spacing:.11em;
+  pointer-events:none;
+}
+
+.illustration-strip{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x proximity;
+  scrollbar-width:none;
+  padding:4px 2px 14px;
+  -webkit-overflow-scrolling:touch;
+}
+
+.illustration-strip::-webkit-scrollbar{
+  display:none;
+}
+
+.illustration-thumb{
+  position:relative;
+  flex:0 0 150px;
+  height:190px;
+  padding:0;
+  border:2px solid transparent;
+  background:#fff;
+  overflow:hidden;
+  cursor:pointer;
+  scroll-snap-align:start;
+  transition:.18s ease;
+}
+
+.illustration-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.illustration-thumb-placeholder{
+  width:100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  border:1px solid #ddd;
+}
+
+.illustration-thumb-placeholder .shape{
+  width:56%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:#111;
+}
+
+.illustration-thumb:nth-child(3n+1) .illustration-thumb-placeholder{
+  background:var(--main-color);
+}
+.illustration-thumb:nth-child(3n) .illustration-thumb-placeholder{
+  background:#111;
+}
+.illustration-thumb:nth-child(3n) .illustration-thumb-placeholder .shape{
+  background:var(--main-color);
+}
+
+.illustration-thumb.active{
+  border-color:var(--main-color);
+  transform:translateY(-3px);
+  box-shadow:0 6px 0 color-mix(in srgb,var(--main-color) 22%,transparent);
+}
+
+.illustration-thumb-label{
+  position:absolute;
+  left:7px;
+  right:7px;
+  bottom:7px;
+  padding:5px 7px;
+  background:rgba(17,17,17,.78);
+  color:#fff;
+  text-align:left;
+  font-size:.58rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.illustration-counter{
+  text-align:right;
+  font-size:.62rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  color:#777;
+}
+
+/* ---- ILLUSTRATION CATEGORY TABS ---- */
+.illustration-category-wrap{
+  margin-top:4px;
+  border-top:1px solid #cfcfcf;
+  border-bottom:1px solid #cfcfcf;
+}
+
+.illustration-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+
+.illustration-tab{
+  position:relative;
+  min-height:58px;
+  padding:0 16px;
+  border:0;
+  background:transparent;
+  color:#8a8a8a;
+  font:inherit;
+  font-size:.86rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  cursor:pointer;
+}
+
+.illustration-tab + .illustration-tab{
+  border-left:1px solid #d8d8d8;
+}
+
+.illustration-tab.active{
+  color:#111;
+}
+
+.illustration-tab.active::after{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  bottom:-1px;
+  height:4px;
+  background:var(--main-color);
+}
+
+.illustration-subtabs{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:12px 0 2px;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+
+.illustration-subtabs::-webkit-scrollbar{
+  display:none;
+}
+
+.illustration-subtabs[hidden]{
+  display:none !important;
+}
+
+.illustration-subtab{
+  flex:0 0 auto;
+  min-height:38px;
+  padding:0 14px;
+  border:1px solid #d5d5d5;
+  background:#fff;
+  color:#777;
+  font:inherit;
+  font-size:.64rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  cursor:pointer;
+}
+
+.illustration-subtab.active{
+  border-color:#111;
+  background:#111;
+  color:#fff;
+}
+
+.illustration-empty{
+  flex:0 0 100%;
+  min-height:150px;
+  display:grid;
+  place-items:center;
+  color:#888;
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  border:1px dashed #cfcfcf;
+}
+
+@media(max-width:430px){
+  .illustration-tab{
+    min-height:52px;
+    font-size:.78rem;
+  }
+
+  .illustration-subtab{
+    min-height:36px;
+    padding:0 12px;
+    font-size:.59rem;
+  }
+}
+
+@media(max-width:700px){
+  .illustration-main{
+    height:390px;
+    min-height:390px;
+  }
+
+  .illustration-main-placeholder{
+    min-height:0;
+  }
+
+  .illustration-thumb{
+    flex-basis:118px;
+    height:150px;
+  }
+}
+
+@media(max-width:430px){
+  .illustration-main{
+    height:330px;
+    min-height:330px;
+  }
+
+  .illustration-main-placeholder{
+    min-height:0;
+  }
+
+  .illustration-thumb{
+    flex-basis:105px;
+    height:134px;
+  }
+}
+
+/* ===== STANCE ===== */
+.stance-shell{
+  display:grid;
+  gap:16px;
+}
+
+.stance-intro{
+  position:relative;
+  overflow:hidden;
+  padding:30px;
+  background:#111;
+  color:#fff;
+  min-height:390px;
+}
+
+.stance-intro::after{
+  content:"STANCE";
+  position:absolute;
+  right:-.04em;
+  bottom:-.18em;
+  font-size:clamp(6rem,24vw,13rem);
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-.08em;
+  color:rgba(255,255,255,.035);
+  pointer-events:none;
+}
+
+.stance-loading{
+  font-weight:900;
+  letter-spacing:.14em;
+  color:#999;
+}
+
+.stance-eyebrow{
+  position:relative;
+  z-index:2;
+  margin-bottom:24px;
+  font-size:.66rem;
+  font-weight:900;
+  letter-spacing:.18em;
+  color:var(--main-color);
+}
+
+.stance-intro-title{
+  position:relative;
+  z-index:2;
+  margin:0;
+  white-space:pre-line;
+  font-size:clamp(3.7rem,15vw,7rem);
+  line-height:.78;
+  letter-spacing:-.07em;
+}
+
+.stance-tags{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:28px;
+}
+
+.stance-tag{
+  padding:7px 9px;
+  border:1px solid #555;
+  font-size:.58rem;
+  font-weight:900;
+  letter-spacing:.10em;
+}
+
+.stance-lead{
+  position:relative;
+  z-index:2;
+  max-width:680px;
+  margin:24px 0 0;
+  color:#bbb;
+  font-size:.8rem;
+  line-height:1.9;
+}
+
+.stance-list{
+  display:grid;
+  gap:9px;
+}
+
+.stance-item{
+  border:1px solid #d7d7d7;
+  background:#fff;
+}
+
+.stance-item[open]{
+  border-color:#111;
+  box-shadow:6px 6px 0 color-mix(in srgb,var(--main-color) 18%,transparent);
+}
+
+.stance-summary{
+  list-style:none;
+  cursor:pointer;
+  display:grid;
+  grid-template-columns:52px minmax(0,1fr) 34px;
+  align-items:center;
+  gap:14px;
+  padding:20px 18px;
+  user-select:none;
+}
+
+.stance-summary::-webkit-details-marker{
+  display:none;
+}
+
+.stance-no{
+  font-size:.65rem;
+  font-weight:900;
+  letter-spacing:.14em;
+  color:var(--main-color);
+}
+
+.stance-summary-text{
+  min-width:0;
+}
+
+.stance-summary-title{
+  display:block;
+  font-size:1rem;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+
+.stance-summary-jp{
+  display:block;
+  margin-top:3px;
+  color:#888;
+  font-size:.67rem;
+}
+
+.stance-toggle{
+  position:relative;
+  width:28px;
+  height:28px;
+  justify-self:end;
+}
+
+.stance-toggle::before,
+.stance-toggle::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:15px;
+  height:2px;
+  background:#111;
+  transform:translate(-50%,-50%);
+  transition:.18s ease;
+}
+
+.stance-toggle::after{
+  transform:translate(-50%,-50%) rotate(90deg);
+}
+
+.stance-item[open] .stance-toggle::after{
+  transform:translate(-50%,-50%) rotate(0);
+  opacity:0;
+}
+
+.stance-body{
+  padding:4px 24px 26px 84px;
+  border-top:1px solid #ececec;
+  font-size:.84rem;
+  line-height:2;
+  color:#262626;
+}
+
+.stance-body p{
+  margin:16px 0 0;
+}
+
+.stance-body h4{
+  margin:28px 0 4px;
+  padding-left:12px;
+  border-left:4px solid var(--main-color);
+  font-size:.78rem;
+  letter-spacing:.10em;
+}
+
+.stance-item.alert .stance-summary{
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb,var(--main-color) 9%,white),
+      #fff 34%
+    );
+}
+
+.stance-item.alert .stance-summary-title::before{
+  content:"!";
+  display:inline-grid;
+  place-items:center;
+  width:21px;
+  height:21px;
+  margin-right:8px;
+  border-radius:50%;
+  background:var(--main-color);
+  color:#fff;
+  font-size:.72rem;
+  vertical-align:2px;
+}
+
+.contact{
+  background:#111;
+  color:white;
+  padding:28px;
+}
+
+.stance-contact{
+  margin-top:10px;
+}
+
+.stance-contact-kicker{
+  margin-bottom:24px;
+  font-size:.65rem;
+  font-weight:900;
+  letter-spacing:.16em;
+  color:var(--main-color);
+}
+
+.contact-big{
+  font-weight:900;
+  font-size:clamp(3rem,13vw,6.5rem);
+  line-height:.8;
+  letter-spacing:-.05em;
+  margin-bottom:30px;
+}
+
+.contact-links{
+  display:grid;
+  gap:10px;
+}
+
+.contact-link{
+  border:1px solid #555;
+  padding:16px 18px;
+  display:flex;
+  justify-content:space-between;
+}
+
+@media(max-width:600px){
+  .stance-intro{
+    min-height:340px;
+    padding:24px 20px;
+  }
+
+  .stance-summary{
+    grid-template-columns:40px minmax(0,1fr) 28px;
+    gap:10px;
+    padding:18px 14px;
+  }
+
+  .stance-summary-title{
+    font-size:.88rem;
+  }
+
+  .stance-summary-jp{
+    font-size:.62rem;
+  }
+
+  .stance-body{
+    padding:4px 18px 22px;
+    font-size:.8rem;
+  }
+
+  .stance-body h4{
+    margin-top:24px;
+  }
+}
+footer{text-align:center;color:#777;padding:25px 16px 45px;font-size:.75rem}
+
+
+
+
+
+/* ===== CHARACTER THEME COLOR =====
+   renderCharacter() でキャラごとに --character-color を変更します。
+   背景の淡色は color-mix() で自動生成されます。
+*/
+section[data-page="character"]{
+  --character-color:#2f6bff;
+  --character-soft:color-mix(in srgb, var(--character-color) 12%, white);
+  --character-soft-strong:color-mix(in srgb, var(--character-color) 22%, white);
+  --main-color:var(--character-color);
+}
+
+section[data-page="character"] .profile-action{
+  color:var(--character-color);
+}
+
+section[data-page="character"] .artwork-open{
+  color:var(--character-color);
+}
+
+/* ===== CHARACTER PROFILE + WARDROBE UI ===== */
+section[data-page="character"] .section-head{
+  display:none;
+}
+
+section[data-page="character"] .section{
+  padding-top:18px;
+}
+
+section[data-page="character"] .back{
+  width:42px;
+  height:42px;
+  padding:0;
+  margin:0 0 16px;
+  border:1px solid #d8d8d8;
+  border-radius:50%;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  font-size:0;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+
+section[data-page="character"] .back::before{
+  content:"←";
+  color:#111;
+  font-size:1.15rem;
+}
+
+.detail{
+  display:block;
+}
+
+/* ===== 通常プロフィール画面 ===== */
+.character-overview[hidden]{
+  display:none !important;
+}
+
+.character-overview{
+  position:relative;
+  min-height:610px;
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid #e4e7eb;
+  box-shadow:0 16px 42px rgba(17,17,17,.07);
+}
+
+.character-overview::after{
+  content:"";
+  position:absolute;
+  top:-10%;
+  right:-5%;
+  width:48%;
+  height:125%;
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--character-color) 10%, transparent),
+      color-mix(in srgb, var(--character-color) 22%, white));
+  transform:skewX(-10deg);
+  transform-origin:center;
+  pointer-events:none;
+}
+
+.overview-info{
+  position:relative;
+  z-index:2;
+  padding:54px 42px 46px;
+  align-self:center;
+}
+
+.overview-kicker{
+  margin-bottom:12px;
+  font-size:.7rem;
+  font-weight:900;
+  letter-spacing:.18em;
+  color:var(--main-color);
+}
+
+.overview-info h2{
+  margin:0;
+  font-size:clamp(3rem,7vw,5.7rem);
+  line-height:.92;
+  letter-spacing:-.055em;
+}
+
+.overview-info .jp{
+  margin:10px 0 30px;
+}
+
+.overview-info .specs{
+  margin-top:18px;
+}
+
+.overview-info .profile-text{
+  margin:24px 0 0;
+  max-width:620px;
+}
+
+.overview-art{
+  position:relative;
+  z-index:3;
+  min-height:610px;
+  display:grid;
+  place-items:end center;
+  overflow:hidden;
+  padding:42px 20px 0;
+}
+
+.overview-image{
+  width:100%;
+  height:100%;
+  min-height:540px;
+  display:grid;
+  place-items:end center;
+}
+
+.overview-image img{
+  width:100%;
+  height:100%;
+  max-height:590px;
+  object-fit:contain;
+  object-position:center bottom;
+}
+
+.overview-image svg{
+  width:88%;
+  max-width:520px;
+  max-height:560px;
+}
+
+.profile-actions{
+  position:absolute;
+  top:20px;
+  right:20px;
+  z-index:8;
+  display:flex;
+  gap:12px;
+}
+
+.profile-action{
+  width:54px;
+  height:54px;
+  border:1px solid rgba(17,17,17,.15);
+  background:rgba(255,255,255,.94);
+  color:var(--main-color);
+  display:grid;
+  place-items:center;
+  transform:rotate(45deg);
+  cursor:pointer;
+  box-shadow:0 7px 18px rgba(0,0,0,.08);
+}
+
+.profile-action svg{
+  width:27px;
+  height:27px;
+  transform:rotate(-45deg);
+}
+
+.artwork-open{
+  color:#111;
+}
+
+/* ===== 衣装選択画面 ===== */
+.wardrobe-editor{
+  position:relative;
+  min-height:650px;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      108deg,
+      #fff 0 48%,
+      color-mix(in srgb, var(--character-color) 13%, white) 48% 100%
+    );
+  border:1px solid #e1e8ec;
+  box-shadow:0 16px 42px rgba(17,17,17,.07);
+}
+
+.wardrobe-editor[hidden]{
+  display:none !important;
+}
+
+.wardrobe-back{
+  position:absolute;
+  top:16px;
+  left:16px;
+  z-index:12;
+  width:42px;
+  height:42px;
+  border:1px solid #d9d9d9;
+  border-radius:50%;
+  background:#fff;
+  font-size:1.15rem;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+
+.wardrobe-grid{
+  min-height:650px;
+  display:grid;
+  grid-template-columns:minmax(300px,.92fr) minmax(430px,1.08fr);
+}
+
+.wardrobe-stage-column{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+}
+
+.wardrobe-stage{
+  min-height:650px;
+  display:grid;
+  place-items:end center;
+  padding:56px 26px 18px;
+  overflow:hidden;
+}
+
+.wardrobe-stage-inner{
+  width:100%;
+  height:100%;
+  min-height:560px;
+  display:grid;
+  place-items:end center;
+}
+
+.wardrobe-stage-inner img{
+  width:100%;
+  height:100%;
+  max-height:590px;
+  object-fit:contain;
+  object-position:center bottom;
+}
+
+.wardrobe-stage-inner svg{
+  width:82%;
+  max-width:500px;
+  max-height:570px;
+}
+
+.wardrobe-controls{
+  min-width:0;
+  padding:54px 30px 28px 12px;
+  display:flex;
+  flex-direction:column;
+}
+
+
+.wardrobe-heading{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.wardrobe-heading b{
+  font-size:.78rem;
+  letter-spacing:.14em;
+}
+
+.wardrobe-heading small{
+  color:#888;
+}
+
+.outfit-row{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding:4px 3px 13px;
+  scrollbar-width:none;
+  scroll-snap-type:x proximity;
+}
+
+.outfit-row::-webkit-scrollbar{display:none}
+
+.outfit-card{
+  position:relative;
+  flex:0 0 138px;
+  height:270px;
+  border:2px solid transparent;
+  background:rgba(255,255,255,.72);
+  padding:0;
+  overflow:hidden;
+  cursor:pointer;
+  scroll-snap-align:start;
+  box-shadow:0 7px 18px rgba(0,0,0,.06);
+  transition:.18s ease;
+}
+
+.outfit-card .outfit-picture{
+  width:100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+}
+
+.outfit-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
+
+.outfit-card svg{
+  width:100%;
+  height:100%;
+}
+
+.outfit-card::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:42%;
+  background:linear-gradient(transparent,rgba(17,17,17,.82));
+  pointer-events:none;
+}
+
+.outfit-card .outfit-name{
+  position:absolute;
+  z-index:2;
+  left:9px;
+  right:9px;
+  bottom:10px;
+  color:#fff;
+  font-size:.7rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-shadow:0 2px 4px rgba(0,0,0,.45);
+}
+
+.outfit-card.active{
+  border-color:var(--main-color);
+  transform:translateY(-4px);
+  box-shadow:0 10px 0 rgba(47,107,255,.13);
+}
+
+.expression-block{
+  padding-top:18px;
+  border-top:1px solid rgba(17,17,17,.08);
+}
+
+.wardrobe-expression{
+  margin:0 26px 26px;
+}
+
+.expression-title{
+  margin-bottom:10px;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.14em;
+}
+
+.expression-row{
+  display:flex;
+  gap:9px;
+  overflow-x:auto;
+  padding:3px 2px 8px;
+  scrollbar-width:none;
+}
+
+.expression-row::-webkit-scrollbar{display:none}
+
+.expression-card{
+  flex:0 0 66px;
+  height:66px;
+  border:2px solid #d9dfe2;
+  padding:0;
+  background:#fff;
+  overflow:hidden;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+}
+
+.expression-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
+
+.expression-card svg{
+  width:100%;
+  height:100%;
+}
+
+.expression-card.active{
+  border-color:var(--main-color);
+  box-shadow:0 4px 0 rgba(47,107,255,.14);
+}
+
+.wardrobe-empty{
+  padding:18px;
+  border:1px dashed #bfc9ce;
+  color:#777;
+  background:rgba(255,255,255,.55);
+  line-height:1.8;
+}
+
+.character-media{
+  width:min(900px,100%);
+  margin:42px auto 0;
+}
+
+/* ===== スマホ ===== */
+@media(max-width:700px){
+  .character-overview{
+    grid-template-columns:.96fr 1.04fr;
+    min-height:520px;
+  }
+
+  .overview-info{
+    padding:30px 16px 26px;
+  }
+
+  .overview-info h2{
+    font-size:clamp(2.1rem,10vw,3.8rem);
+  }
+
+  .overview-info .jp{
+    font-size:.72rem;
+    margin-bottom:18px;
+  }
+
+  .overview-info .specs{
+    grid-template-columns:1fr;
+    font-size:.82rem;
+  }
+
+  .overview-info .profile-text{
+    font-size:.82rem;
+    line-height:1.7;
+  }
+
+  .overview-art,
+  .overview-image{
+    min-height:520px;
+  }
+
+  .overview-art{
+    padding:58px 4px 0;
+  }
+
+  .profile-actions{
+    top:14px;
+    right:14px;
+    gap:9px;
+  }
+
+  .profile-action{
+    width:47px;
+    height:47px;
+  }
+
+  .wardrobe-grid{
+    display:block;
+    min-height:0;
+  }
+
+  .wardrobe-editor{
+    min-height:0;
+  }
+
+  .wardrobe-stage-column{
+    display:block;
+  }
+
+  .wardrobe-stage{
+    min-height:430px;
+    padding:52px 14px 8px;
+  }
+
+  .wardrobe-stage-inner{
+    min-height:370px;
+  }
+
+  .wardrobe-stage-inner img{
+    max-height:420px;
+  }
+
+  /* 表情差分は大画像のすぐ下 */
+  .wardrobe-expression{
+    margin:0 14px 18px;
+    padding-top:16px;
+  }
+
+  .wardrobe-controls{
+    padding:10px 14px 22px;
+  }
+
+  .outfit-card{
+    flex-basis:116px;
+    height:220px;
+  }
+
+  .expression-card{
+    flex-basis:58px;
+    height:58px;
+  }
+}
+
+@media(max-width:430px){
+  .character-overview{
+    grid-template-columns:.9fr 1.1fr;
+    min-height:500px;
+  }
+
+  .overview-info{
+    padding-left:12px;
+    padding-right:8px;
+  }
+
+  .overview-info h2{
+    font-size:2.25rem;
+  }
+
+  .overview-kicker{
+    font-size:.58rem;
+  }
+
+  .overview-info .profile-text{
+    font-size:.74rem;
+  }
+
+  .spec{
+    padding:9px 0;
+  }
+}
+
+
+/* ===== イラスト / 作品スワイプ画面 ===== */
+.artwork-viewer{
+  position:relative;
+  min-height:650px;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      120deg,
+      #fff 0 62%,
+      color-mix(in srgb, var(--character-color) 13%, white) 62% 100%
+    );
+  border:1px solid #e1e8ec;
+  box-shadow:0 16px 42px rgba(17,17,17,.07);
+}
+
+.artwork-viewer[hidden]{
+  display:none !important;
+}
+
+.artwork-back{
+  position:absolute;
+  top:16px;
+  left:16px;
+  z-index:12;
+  width:42px;
+  height:42px;
+  border:1px solid #d9d9d9;
+  border-radius:50%;
+  background:#fff;
+  font-size:1.15rem;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+
+.artwork-head{
+  position:absolute;
+  top:22px;
+  left:74px;
+  right:22px;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.artwork-head b{
+  font-size:.75rem;
+  letter-spacing:.16em;
+}
+
+.artwork-counter{
+  color:#777;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.10em;
+}
+
+.artwork-track{
+  display:flex;
+  width:100%;
+  min-height:650px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+
+.artwork-track::-webkit-scrollbar{
+  display:none;
+}
+
+.artwork-slide{
+  flex:0 0 100%;
+  width:100%;
+  min-height:650px;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+  display:grid;
+  place-items:center;
+  padding:80px 42px 82px;
+}
+
+.artwork-frame{
+  position:relative;
+  width:min(900px,100%);
+  height:500px;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.92);
+  border:1px solid #dfe5e8;
+  box-shadow:0 16px 34px rgba(17,17,17,.08);
+  overflow:hidden;
+}
+
+.artwork-frame img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.artwork-placeholder{
+  width:100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+  background:
+    linear-gradient(135deg,
+      rgba(47,107,255,.08),
+      rgba(143,197,255,.18));
+  color:#2f6bff;
+  font-weight:900;
+  letter-spacing:.14em;
+  font-size:clamp(1.3rem,5vw,3rem);
+}
+
+.artwork-caption{
+  position:absolute;
+  left:18px;
+  bottom:16px;
+  padding:8px 11px;
+  background:rgba(17,17,17,.84);
+  color:#fff;
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.11em;
+}
+
+.artwork-dots{
+  position:absolute;
+  left:50%;
+  bottom:24px;
+  z-index:10;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.88);
+  box-shadow:0 4px 14px rgba(0,0,0,.06);
+}
+
+.artwork-dot{
+  width:9px;
+  height:9px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:#b8c0c6;
+}
+
+.artwork-dot.active{
+  background:var(--main-color);
+  transform:scale(1.2);
+}
+
+@media(max-width:700px){
+  .artwork-viewer,
+  .artwork-track,
+  .artwork-slide{
+    min-height:560px;
+  }
+
+  .artwork-slide{
+    padding:76px 18px 76px;
+  }
+
+  .artwork-frame{
+    height:410px;
+  }
+
+  .artwork-head{
+    left:70px;
+    right:16px;
+  }
+}
+
+@media(max-width:430px){
+  .artwork-viewer,
+  .artwork-track,
+  .artwork-slide{
+    min-height:520px;
+  }
+
+  .artwork-frame{
+    height:360px;
+  }
+
+  .artwork-caption{
+    left:10px;
+    bottom:10px;
+    font-size:.6rem;
+  }
+}
+
+
+/* ===== CHARACTER MUSIC / HORIZONTAL SWIPE ===== */
+.character-music{
+  margin-top:34px;
+  padding-top:26px;
+  border-top:2px solid #111;
+}
+
+.character-music h3{
+  margin:0 0 18px;
+  font-size:.78rem;
+  letter-spacing:.18em;
+}
+
+.music-list,
+.video-list{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  padding:4px 7px 12px;
+}
+
+.music-list::-webkit-scrollbar,
+.video-list::-webkit-scrollbar{
+  display:none;
+}
+
+.music-card,
+.video-card{
+  flex:0 0 min(360px,92%);
+  width:min(360px,92%);
+  margin:0;
+  scroll-snap-align:center;
+  scroll-snap-stop:always;
+  background:#111;
+  border:1px solid #111;
+  box-shadow:6px 6px 0 var(--main-color);
+}
+
+.music-meta{
+  display:grid;
+  gap:2px;
+  padding:10px 12px 9px;
+  border-left:5px solid var(--main-color);
+  background:#111;
+  color:#fff;
+}
+
+.music-title{
+  font-size:.92rem;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+
+.music-artist{
+  font-size:.68rem;
+  color:#aaa;
+  letter-spacing:.08em;
+}
+
+.youtube-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  overflow:hidden;
+  border-top:1px solid #2b2b2b;
+}
+
+.youtube-preview{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  padding:0;
+  background:#000;
+  cursor:pointer;
+  overflow:hidden;
+}
+
+.youtube-preview img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  opacity:.9;
+}
+
+.youtube-preview::after{
+  content:"▶";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  padding-left:4px;
+  background:rgba(17,17,17,.88);
+  color:#fff;
+  font-size:1.55rem;
+  box-shadow:0 0 0 4px var(--main-color);
+}
+
+.youtube-wrap iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.media-swipe-nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  margin-top:10px;
+}
+
+.media-swipe-dots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+}
+
+.media-swipe-dot{
+  width:9px;
+  height:9px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:#b8c0c6;
+  cursor:pointer;
+  transition:.16s ease;
+}
+
+.media-swipe-dot.active{
+  background:var(--main-color);
+  transform:scale(1.2);
+}
+
+.media-swipe-counter{
+  min-width:48px;
+  font-size:.65rem;
+  font-weight:900;
+  letter-spacing:.10em;
+  color:#777;
+}
+
+@media(max-width:430px){
+  .music-card,
+  .video-card{
+    flex-basis:94%;
+    width:94%;
+  }
+}
+
+
+/* ===== HIGH RESOLUTION ARTWORK VIEWER ===== */
+.artwork-frame{
+  cursor:zoom-in;
+}
+
+.artwork-frame::after{
+  content:"TAP TO VIEW HIGH RES";
+  position:absolute;
+  right:14px;
+  top:14px;
+  z-index:3;
+  padding:7px 9px;
+  background:rgba(255,255,255,.90);
+  color:#111;
+  border:1px solid rgba(17,17,17,.12);
+  font-size:.56rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  pointer-events:none;
+}
+
+.highres-viewer{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:grid;
+  grid-template-rows:auto 1fr;
+  background:rgba(8,10,14,.97);
+  backdrop-filter:blur(8px);
+}
+
+.highres-viewer[hidden]{
+  display:none !important;
+}
+
+.highres-toolbar{
+  position:relative;
+  z-index:3;
+  min-height:66px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 14px;
+  color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.highres-title{
+  min-width:0;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+.highres-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.highres-action{
+  min-width:42px;
+  height:42px;
+  padding:0 12px;
+  border:1px solid rgba(255,255,255,.24);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.highres-close{
+  width:42px;
+  padding:0;
+  font-size:1.3rem;
+}
+
+.highres-stage{
+  position:relative;
+  min-width:0;
+  min-height:0;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  touch-action:none;
+  user-select:none;
+  cursor:grab;
+}
+
+.highres-stage.dragging{
+  cursor:grabbing;
+}
+
+.highres-image-wrap{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  pointer-events:none;
+}
+
+.highres-image{
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:none;
+  max-height:none;
+  object-fit:contain;
+  transform-origin:center center;
+  will-change:transform;
+  user-select:none;
+  -webkit-user-drag:none;
+  pointer-events:none;
+}
+
+.highres-loading{
+  position:absolute;
+  left:50%;
+  top:50%;
+  z-index:4;
+  transform:translate(-50%,-50%);
+  color:#fff;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.14em;
+  pointer-events:none;
+}
+
+.highres-help{
+  position:absolute;
+  left:50%;
+  bottom:14px;
+  z-index:5;
+  transform:translateX(-50%);
+  padding:7px 10px;
+  background:rgba(0,0,0,.62);
+  color:#fff;
+  font-size:.58rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  pointer-events:none;
+  white-space:nowrap;
+}
+
+body.highres-open{
+  overflow:hidden;
+}
+
+@media(max-width:700px){
+  .artwork-frame::after{
+    content:"TAP TO ZOOM";
+    right:10px;
+    top:10px;
+    font-size:.50rem;
+  }
+
+  .highres-toolbar{
+    min-height:60px;
+    padding:8px 10px;
+  }
+
+  .highres-title{
+    font-size:.62rem;
+  }
+
+  .highres-action{
+    min-width:38px;
+    height:38px;
+    padding:0 9px;
+  }
+
+  .highres-help{
+    bottom:10px;
+    font-size:.52rem;
+  }
+}
+
+
+/* ===== MEDIA SCREEN / MOVIE + MUSIC ===== */
+.video-viewer{
+  position:relative;
+  min-height:650px;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      120deg,
+      #fff 0 56%,
+      color-mix(in srgb, var(--character-color) 13%, white) 56% 100%
+    );
+  border:1px solid #e1e8ec;
+  box-shadow:0 16px 42px rgba(17,17,17,.07);
+}
+
+.video-viewer[hidden]{
+  display:none !important;
+}
+
+.video-screen-back{
+  position:absolute;
+  top:16px;
+  left:16px;
+  z-index:12;
+  width:42px;
+  height:42px;
+  border:1px solid #d9d9d9;
+  border-radius:50%;
+  background:#fff;
+  font-size:1.15rem;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+
+.media-screen-tabs{
+  position:absolute;
+  top:18px;
+  left:74px;
+  z-index:11;
+  display:flex;
+  gap:8px;
+}
+
+.media-screen-tab{
+  min-width:96px;
+  height:38px;
+  padding:0 14px;
+  border:1px solid #d8dde2;
+  background:rgba(255,255,255,.88);
+  color:#777;
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  cursor:pointer;
+}
+
+.media-screen-tab.active{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+.video-screen-head{
+  position:absolute;
+  top:72px;
+  left:22px;
+  right:22px;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.video-screen-head b{
+  font-size:.75rem;
+  letter-spacing:.16em;
+}
+
+.video-screen-count{
+  color:#777;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.10em;
+}
+
+.media-panel{
+  display:none;
+}
+
+.media-panel.active{
+  display:block;
+}
+
+.video-screen-track,
+.music-screen-track{
+  display:flex;
+  width:100%;
+  min-height:650px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+
+.video-screen-track::-webkit-scrollbar,
+.music-screen-track::-webkit-scrollbar{
+  display:none;
+}
+
+.video-screen-slide,
+.music-screen-slide{
+  flex:0 0 100%;
+  width:100%;
+  min-height:650px;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+  display:grid;
+  place-items:center;
+  padding:118px 38px 84px;
+}
+
+.video-screen-card,
+.music-screen-card{
+  width:min(860px,100%);
+  background:#111;
+  border:1px solid #111;
+  box-shadow:8px 8px 0 var(--main-color);
+}
+
+.video-screen-card .video-wrap,
+.music-screen-card .youtube-wrap{
+  aspect-ratio:16/9;
+}
+
+.video-screen-card .video-title,
+.music-screen-card .music-title{
+  font-size:1rem;
+}
+
+.video-screen-card .video-sub,
+.music-screen-card .music-artist{
+  font-size:.72rem;
+}
+
+.video-screen-dots,
+.music-screen-dots{
+  position:absolute;
+  left:50%;
+  bottom:26px;
+  z-index:10;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.90);
+  box-shadow:0 4px 14px rgba(0,0,0,.06);
+}
+
+.video-screen-dot,
+.music-screen-dot{
+  width:9px;
+  height:9px;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:#b8c0c6;
+}
+
+.video-screen-dot.active,
+.music-screen-dot.active{
+  background:var(--main-color);
+  transform:scale(1.2);
+}
+
+.video-screen-empty,
+.music-screen-empty{
+  width:min(700px,86%);
+  min-height:380px;
+  display:grid;
+  place-items:center;
+  border:1px dashed #bfc9ce;
+  background:rgba(255,255,255,.68);
+  color:#777;
+  font-weight:900;
+  letter-spacing:.14em;
+}
+
+@media(max-width:700px){
+  .profile-actions{
+    right:10px;
+    gap:7px;
+  }
+
+  .profile-action{
+    width:44px;
+    height:44px;
+  }
+
+  .profile-action svg{
+    width:24px;
+    height:24px;
+  }
+
+  .video-viewer,
+  .video-screen-track,
+  .music-screen-track,
+  .video-screen-slide,
+  .music-screen-slide{
+    min-height:560px;
+  }
+
+  .video-screen-slide,
+  .music-screen-slide{
+    padding:116px 18px 78px;
+  }
+
+  .video-screen-head{
+    top:72px;
+    left:16px;
+    right:15px;
+  }
+
+  .media-screen-tabs{
+    left:68px;
+  }
+}
+
+@media(max-width:430px){
+  .profile-actions{
+    top:12px;
+    right:9px;
+    gap:6px;
+  }
+
+  .profile-action{
+    width:42px;
+    height:42px;
+  }
+
+  .media-screen-tab{
+    min-width:82px;
+    padding:0 10px;
+    font-size:.62rem;
+  }
+
+  .video-viewer,
+  .video-screen-track,
+  .music-screen-track,
+  .video-screen-slide,
+  .music-screen-slide{
+    min-height:520px;
+  }
+
+  .video-screen-card,
+  .music-screen-card{
+    width:96%;
+  }
+}
+
+/* ===== CHARACTER ORIGINAL VIDEO / CLICK TO LOAD ===== */
+.character-video{
+  margin-top:34px;
+  padding-top:26px;
+  border-top:2px solid #111;
+}
+.character-video h3{
+  margin:0 0 18px;
+  font-size:.78rem;
+  letter-spacing:.18em;
+}
+.video-meta{
+  display:grid;
+  gap:2px;
+  padding:10px 12px 9px;
+  border-left:5px solid var(--main-color);
+  background:#111;
+  color:#fff;
+}
+.video-title{
+  font-size:.92rem;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+.video-sub{
+  font-size:.68rem;
+  color:#aaa;
+  letter-spacing:.08em;
+}
+.video-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  overflow:hidden;
+  border-top:1px solid #2b2b2b;
+}
+.video-preview{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  padding:0;
+  background:#0b0b0b;
+  cursor:pointer;
+  overflow:hidden;
+}
+.video-preview img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  opacity:.9;
+}
+.video-preview.no-poster{
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-weight:900;
+  letter-spacing:.14em;
+}
+.video-preview::after{
+  content:"▶";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  padding-left:4px;
+  background:rgba(17,17,17,.88);
+  color:#fff;
+  font-size:1.55rem;
+  box-shadow:0 0 0 4px var(--main-color);
+}
+.video-wrap video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#000;
+}
+
+
+@media(min-width:820px){
+  .char-grid{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#home" id="brandText"></a>
+  <button class="menu-btn" id="menuBtn" aria-label="メニューを開く">
+    <span class="hamb"><span></span><span></span><span></span></span>
+    <span class="menu-label">menu</span>
+  </button>
+</header>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="drawer" id="drawer">
+  <button class="close" id="closeBtn">×</button>
+  <nav>
+    <a class="navitem" href="#home"><div class="barcode"></div>HOME</a>
+    <a class="navitem" href="#characters"><div class="barcode"></div>OC</a>
+    <a class="navitem" href="#trpg"><div class="barcode"></div>TRPG</a>
+    <a class="navitem" href="#works"><div class="barcode"></div>ILLUSTRATION</a>
+    <a class="navitem" href="#contact"><div class="barcode"></div>STANCE</a>
+  </nav>
+  <div class="socials" id="socialButtons"></div>
+</aside>
+
+<main>
+  <section class="view" data-page="home">
+    <div class="home-cover wrap">
+
+      <div class="home-visual">
+        <div class="home-visual-topbar">
+          <span>ORIGINAL WORK</span>
+          <span id="homeVisualYear">2026</span>
+        </div>
+
+        <div class="home-slider" id="heroArt"></div>
+
+        <div class="home-slider-ui">
+          <div class="home-slider-dots" id="homeSliderDots"></div>
+          <div class="home-slider-count" id="homeSliderCount">01 / 01</div>
+        </div>
+      </div>
+
+      <div class="home-copy">
+        <h1 class="home-title" id="heroTitle"></h1>
+
+        <div class="home-eyebrow" id="heroKicker"></div>
+
+        <p class="home-description" id="heroText"></p>
+
+        <div class="home-meta">
+          <div class="home-meta-line"></div>
+          <div class="home-meta-text">
+            <span id="homeCredit"></span>
+            <span id="homeYear"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" data-page="characters">
+    <div class="section wrap">
+      <div class="section-head">
+        <div class="dot"></div>
+        <h1 class="title">OC</h1>
+      </div>
+
+      <!-- 大分類：OC / TRPG -->
+      <div class="character-group-tabs" id="characterGroupTabs">
+        <button
+          type="button"
+          class="character-group-tab active"
+          data-character-group="oc"
+        >OC</button>
+
+        <button
+          type="button"
+          class="character-group-tab"
+          data-character-group="trpg"
+        >TRPG</button>
+      </div>
+
+      <!-- OCの時だけ表示する小分類 -->
+      <div class="character-category-tabs" id="characterCategoryTabs">
+        <button
+          type="button"
+          class="character-category-tab"
+          data-character-category="rp"
+        >ORIGINAL RP PROJECT</button>
+
+        <button
+          type="button"
+          class="character-category-tab active"
+          data-character-category="character"
+        >ORIGINAL CHARACTER</button>
+      </div>
+
+      <div class="char-grid" id="characterGrid"></div>
+    </div>
+  </section>
+
+  <section class="view" data-page="trpg">
+    <div class="section wrap">
+      <div class="section-head">
+        <div class="dot"></div>
+        <h1 class="title">TRPG</h1>
+      </div>
+      <div class="char-grid" id="trpgGrid"></div>
+    </div>
+  </section>
+
+  <section class="view" data-page="character">
+    <div class="section wrap">
+      <a class="back" id="characterBack" href="#characters">OC</a>
+      <div class="section-head">
+        <div class="dot"></div>
+        <h1 class="title">CHARACTER</h1>
+      </div>
+      <div class="detail">
+        <!-- 通常プロフィール画面 -->
+        <div class="character-overview" id="characterOverview">
+          <div class="overview-info">
+            <div class="overview-kicker">CHARACTER PROFILE</div>
+            <h2 id="characterName"></h2>
+            <div class="jp" id="characterSub"></div>
+            <div class="specs" id="characterSpecs"></div>
+            <p class="profile-text" id="characterText"></p>
+          </div>
+
+          <div class="overview-art">
+            <div class="profile-actions">
+              <button class="profile-action wardrobe-open" id="wardrobeOpen" type="button" aria-label="衣装を見る">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <path d="M22 10c2.7 6.2 16.9 6.2 20 0l11 8-7 11-5-3v27H23V26l-5 3-7-11 11-8Z"
+                        fill="none" stroke="currentColor" stroke-width="4"
+                        stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <button class="profile-action video-open" id="videoOpen" type="button" aria-label="動画を見る">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <rect x="10" y="15" width="44" height="34" rx="4"
+                        fill="none" stroke="currentColor" stroke-width="4"/>
+                  <path d="M28 24l14 8-14 8Z"
+                        fill="none" stroke="currentColor" stroke-width="4"
+                        stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <button class="profile-action artwork-open" id="artworkOpen" type="button" aria-label="イラストを見る">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                  <rect x="10" y="13" width="44" height="38" rx="3"
+                        fill="none" stroke="currentColor" stroke-width="4"/>
+                  <circle cx="24" cy="26" r="5"
+                          fill="none" stroke="currentColor" stroke-width="4"/>
+                  <path d="M14 45l13-13 9 9 6-6 8 10"
+                        fill="none" stroke="currentColor" stroke-width="4"
+                        stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="overview-image" id="characterImage"></div>
+          </div>
+        </div>
+
+        <!-- 衣装選択画面 -->
+        <div class="wardrobe-editor" id="wardrobeEditor" hidden></div>
+
+        <!-- イラスト・作品画面 -->
+        <div class="artwork-viewer" id="artworkViewer" hidden></div>
+
+        <!-- 動画画面 -->
+        <div class="video-viewer" id="videoViewer" hidden></div>
+
+        <!-- MOVIE / MUSIC は右上の動画ボタンから見る -->
+      </div>
+    </div>
+  </section>
+
+  <section class="view" data-page="works">
+    <div class="section wrap">
+      <div class="section-head">
+        <div class="dot"></div>
+        <h1 class="title">ILLUSTRATION</h1>
+      </div>
+      <div class="works" id="worksGrid"></div>
+    </div>
+  </section>
+
+  <section class="view" data-page="contact">
+    <div class="section wrap">
+      <div class="section-head">
+        <div class="dot"></div>
+        <h1 class="title">STANCE</h1>
+      </div>
+
+      <div class="stance-shell">
+        <div class="stance-intro" id="stanceIntro">
+          <div class="stance-loading">LOADING STANCE...</div>
+        </div>
+
+        <div class="stance-list" id="stanceList"></div>
+
+        <div class="contact stance-contact">
+          <div class="stance-contact-kicker">09 / CONTACT</div>
+          <div class="contact-big">GET<br>IN<br>TOUCH.</div>
+          <div class="contact-links" id="contactLinks"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="footerText"></footer>
+
+
+  <!-- 高解像度イラストビューア：full画像は開いた時だけ読み込み -->
+  <div class="highres-viewer" id="highresViewer" hidden>
+    <div class="highres-toolbar">
+      <div class="highres-title" id="highresTitle">ARTWORK</div>
+
+      <div class="highres-actions">
+        <button class="highres-action" id="highresZoomOut" type="button" aria-label="縮小">−</button>
+        <button class="highres-action" id="highresZoomReset" type="button" aria-label="等倍に戻す">100%</button>
+        <button class="highres-action" id="highresZoomIn" type="button" aria-label="拡大">＋</button>
+        <button class="highres-action highres-close" id="highresClose" type="button" aria-label="閉じる">×</button>
+      </div>
+    </div>
+
+    <div class="highres-stage" id="highresStage">
+      <div class="highres-loading" id="highresLoading">LOADING HIGH RES...</div>
+
+      <div class="highres-image-wrap">
+        <img class="highres-image" id="highresImage" alt="">
+      </div>
+
+      <div class="highres-help">ピンチで拡大縮小 / 1本指ドラッグ / ダブルタップで拡大</div>
+    </div>
+  </div>
+
+<script>
+/* =========================================================
+   ★★★★★ ここから下だけ編集すればOK！ ★★★★★
+
+   ★ キャラクターデータは別ファイルになりました
+
+   OC   → data/oc.js
+   TRPG → data/trpg.js
+
+   index.html はレイアウト・HOME・ILLUSTRATION・STANCEなど
+   サイト本体の編集に使います。
+
+   OC/TRPGはメニューで開いた時だけ読み込まれるので、
+   キャラが増えても index.html が長くなりません。
+
+   ========================================================= */
+
+const SITE = {
+
+  /* ===== サイト全体 ===== */
+  siteName: "YOUR / PORTFOLIO",
+  footer: "© 2026 YOUR NAME / PORTFOLIO. All rights reserved.",
+
+  /* ===== HOME ===== */
+  home: {
+    kicker: "ILLUSTRATOR / CHARACTER DESIGN",
+
+    // HOMEの巨大タイトル
+    // NICO = 黒 / LAS = アクセントカラー
+    titleTop: "NICO",
+    titleBottom: "LAS",
+
+    // ページ下部の署名
+    credit: "NICOLAS",
+    year: "2026",
+
+    text: "Original characters, illustrations and visual works. A curated archive of personal and commissioned pieces.",
+
+    // HOME上部のメインビジュアル
+    // 複数入れると自動で順番に切り替わります。
+    // 推奨：2〜5枚程度
+    // 例：
+    // images: [
+    //   "images/main01.webp",
+    //   "images/main02.webp",
+    //   "images/main03.webp"
+    // ]
+    images: [
+      "images/embedded/asset-01-f4ebb6af5ce3.jpg",
+      "images/embedded/asset-02-e4e0d47606f3.jpg",
+      "images/embedded/asset-03-1073bc42ed1d.jpg"
+    ]
+  },
+
+  /* ===== SNS ===== */
+  socials: [
+    { label: "X", url: "#" },
+    { label: "P", url: "#" },
+    { label: "✉", url: "mailto:you@example.com" }
+  ],
+
+  /* ===== CONTACT ===== */
+  contact: [
+    { label: "X / Twitter", url: "#" },
+    { label: "pixiv", url: "#" },
+    { label: "you@example.com", url: "mailto:you@example.com" }
+  ],
+
+  /* =====================================================
+     ★ OC / TRPG のキャラクターデータは外部ファイルです
+
+       data/oc.js   → OC
+       data/trpg.js → TRPG
+
+     メニューでOC/TRPGを開いた時だけ読み込みます。
+     ===================================================== */
+
+  /* =====================================================
+     ★ ILLUSTRATION
+     【TEST PLAY版】image/full に仮画像4枚を埋め込み済み
+     title    = 作品名
+     year     = 年など
+     group    = "oc" または "trpg"
+     category = OCの場合のみ
+                "rp"        → Original RP Project
+                "character" → Original Character
+                TRPGは "" でOK
+     image = 通常表示用画像
+     full  = タップ時に開く高解像度画像
+             full未設定なら image をそのまま拡大表示
+
+     おすすめ：
+       image → Web表示用（長辺4000〜5000px程度）
+       full  → 高解像度原画（例：10000×7000px）
+     ===================================================== */
+  works: [
+    {
+      title: "TEST WORK 01",
+      year: "Illustration / TEST",
+      group: "oc",
+      category: "rp",
+      image: "images/embedded/asset-04-de33d53c7eea.jpg",
+      full: "images/embedded/asset-05-7feaaae29970.jpg"
+    },
+    {
+      title: "TEST WORK 02",
+      year: "Illustration / TEST",
+      group: "oc",
+      category: "rp",
+      image: "images/embedded/asset-06-4700b5ffcbdb.jpg",
+      full: "images/embedded/asset-07-ea8361428316.jpg"
+    },
+    {
+      title: "TEST WORK 03",
+      year: "Illustration / TEST",
+      group: "oc",
+      category: "character",
+      image: "images/embedded/asset-08-df0db6d107cf.jpg",
+      full: "images/embedded/asset-09-91e5f0507c57.jpg"
+    },
+    {
+      title: "TEST WORK 04",
+      year: "Illustration / TEST",
+      group: "trpg",
+      category: "",
+      image: "images/embedded/asset-10-e16c8ab0fb77.jpg",
+      full: "images/embedded/asset-11-10b2ce2590d7.jpg"
+    }
+  ]
+};
+
+/* ★★★★★ 編集する場所はここまで！ ★★★★★ */
+
+
+/* =========================================================
+   ↓ ここから下はサイトを動かすプログラムです。
+   基本的に編集しなくてOKです。
+   ========================================================= */
+
+const drawer = document.getElementById("drawer");
+const overlay = document.getElementById("overlay");
+const menuBtn = document.getElementById("menuBtn");
+const closeBtn = document.getElementById("closeBtn");
+
+function openMenu(){
+  drawer.classList.add("open");
+  overlay.classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeMenu(){
+  drawer.classList.remove("open");
+  overlay.classList.remove("open");
+  document.body.style.overflow="";
+}
+
+menuBtn.addEventListener("click",openMenu);
+closeBtn.addEventListener("click",closeMenu);
+overlay.addEventListener("click",closeMenu);
+
+function placeholderSvg(accent="var(--main-color)") {
+  return `
+  <svg viewBox="0 0 700 1000" aria-hidden="true">
+    <circle cx="350" cy="180" r="90" fill="#fff" stroke="#111" stroke-width="11"/>
+    <path d="M275 280 L425 280 L500 630 L200 630 Z" fill="#111"/>
+    <rect x="235" y="615" width="95" height="300" rx="45" fill="#fff" stroke="#111" stroke-width="10"/>
+    <rect x="370" y="615" width="95" height="300" rx="45" fill="#fff" stroke="#111" stroke-width="10"/>
+    <path d="M275 305 L165 525" stroke="#111" stroke-width="38" stroke-linecap="round"/>
+    <path d="M425 305 L545 525" stroke="#111" stroke-width="38" stroke-linecap="round"/>
+  </svg>`;
+}
+
+function avatarPlaceholder(index) {
+  const colors = ["#2f6bff","#6aa6ff","#8fc5ff","#1647a8","#b7d4ff","#7f9fd9","#355a9c","#dbe8ff"];
+  const color = colors[index % colors.length];
+  return `
+  <svg viewBox="0 0 300 300">
+    <circle cx="150" cy="150" r="150" fill="${color}"/>
+    <circle cx="150" cy="125" r="78" fill="#fff"/>
+    <path d="M56 270c17-74 65-115 94-115s77 41 94 115" fill="#111"/>
+    <circle cx="122" cy="125" r="8"/>
+    <circle cx="178" cy="125" r="8"/>
+  </svg>`;
+}
+
+function renderSite() {
+  document.title = SITE.siteName;
+  document.getElementById("brandText").textContent = SITE.siteName;
+  document.getElementById("footerText").textContent = SITE.footer;
+
+  document.getElementById("heroKicker").textContent = SITE.home.kicker;
+  document.getElementById("heroTitle").innerHTML =
+    `${SITE.home.titleTop}<span>${SITE.home.titleBottom}</span>`;
+  document.getElementById("heroText").textContent = SITE.home.text;
+  document.getElementById("homeCredit").textContent = SITE.home.credit || "";
+  document.getElementById("homeYear").textContent = SITE.home.year || "";
+
+  const homeVisualYear = document.getElementById("homeVisualYear");
+  if(homeVisualYear){
+    homeVisualYear.textContent = SITE.home.year || "";
+  }
+
+  /* ===== HOME MAIN VISUAL AUTO SLIDER ===== */
+  const homeImages = Array.isArray(SITE.home.images)
+    ? SITE.home.images.filter(Boolean)
+    : [];
+
+  const heroArt = document.getElementById("heroArt");
+  const sliderDots = document.getElementById("homeSliderDots");
+  const sliderCount = document.getElementById("homeSliderCount");
+
+  if(homeImages.length === 0){
+    heroArt.innerHTML = `
+      <div class="home-slide active">
+        <div class="home-placeholder">MAIN VISUAL</div>
+      </div>
+    `;
+    sliderDots.innerHTML = "";
+    sliderCount.textContent = "01 / 01";
+  }else{
+    heroArt.innerHTML = homeImages.map((img,i) => `
+      <div class="home-slide ${i === 0 ? "active" : ""}">
+        <img
+          src="${img}"
+          alt="メインビジュアル ${i + 1}"
+          ${i <= 1 ? 'loading="eager"' : 'loading="lazy"'}
+        >
+      </div>
+    `).join("");
+
+    sliderDots.innerHTML = homeImages.map((_,i) => `
+      <button
+        type="button"
+        class="home-slider-dot ${i === 0 ? "active" : ""}"
+        data-home-slide="${i}"
+        aria-label="${i + 1}枚目を表示"
+      ></button>
+    `).join("");
+
+    let homeSlideIndex = 0;
+    let homeSlideTimer = null;
+
+    const slides = [...heroArt.querySelectorAll(".home-slide")];
+    const dots = [...sliderDots.querySelectorAll(".home-slider-dot")];
+
+    function showHomeSlide(index){
+      homeSlideIndex = (index + slides.length) % slides.length;
+
+      slides.forEach((slide,i) => {
+        slide.classList.toggle("active", i === homeSlideIndex);
+      });
+
+      dots.forEach((dot,i) => {
+        dot.classList.toggle("active", i === homeSlideIndex);
+      });
+
+      sliderCount.textContent =
+        `${String(homeSlideIndex + 1).padStart(2,"0")} / ${String(slides.length).padStart(2,"0")}`;
+    }
+
+    let homeFirstTimer = null;
+
+    function startHomeSlider(){
+      if(slides.length <= 1) return;
+
+      window.clearTimeout(homeFirstTimer);
+      window.clearInterval(homeSlideTimer);
+
+      /* 1枚目 → 2枚目だけは3秒後に早めに切り替える */
+      homeFirstTimer = window.setTimeout(() => {
+        showHomeSlide(homeSlideIndex + 1);
+
+        /* 2枚目以降は6.5秒ごと */
+        homeSlideTimer = window.setInterval(() => {
+          showHomeSlide(homeSlideIndex + 1);
+        }, 6500);
+      }, 3000);
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        showHomeSlide(Number(dot.dataset.homeSlide));
+        startHomeSlider();
+      });
+    });
+
+    showHomeSlide(0);
+    startHomeSlider();
+  }
+
+  const socialButtons = document.getElementById("socialButtons");
+  socialButtons.innerHTML = SITE.socials.map(s =>
+    `<a class="social" href="${s.url}">${s.label}</a>`
+  ).join("");
+
+  const contactLinks = document.getElementById("contactLinks");
+  contactLinks.innerHTML = SITE.contact.map(c =>
+    `<a class="contact-link" href="${c.url}">
+      <span>${c.label}</span><b>↗</b>
+    </a>`
+  ).join("");
+
+  /* OC / TRPG はメニューで開いた時だけ data/*.js を読み込みます */
+  document.getElementById("characterGrid").innerHTML = "";
+  document.getElementById("trpgGrid").innerHTML = "";
+
+  const worksGrid = document.getElementById("worksGrid");
+  const illustrationWorks = Array.isArray(SITE.works) ? SITE.works : [];
+
+  if(illustrationWorks.length === 0){
+    worksGrid.innerHTML = `
+      <div style="padding:70px 20px;text-align:center;font-weight:900;letter-spacing:.14em;color:#777;">
+        NO ILLUSTRATION
+      </div>
+    `;
+  }else{
+    worksGrid.innerHTML = `
+      <div class="illustration-gallery">
+        <div
+          class="illustration-main"
+          id="illustrationMain"
+          role="button"
+          tabindex="0"
+          aria-label="選択中のイラストを拡大表示"
+        >
+          <div id="illustrationMainVisual"></div>
+
+          <div class="illustration-main-meta">
+            <b id="illustrationMainTitle"></b>
+            <small id="illustrationMainYear"></small>
+          </div>
+
+          <div class="illustration-main-hint">TAP TO ZOOM</div>
+        </div>
+
+        <div class="illustration-counter" id="illustrationCounter"></div>
+
+        <!-- 大分類：OC / TRPG -->
+        <div class="illustration-category-wrap">
+          <div class="illustration-tabs">
+            <button
+              type="button"
+              class="illustration-tab active"
+              data-illustration-group="oc"
+            >OC</button>
+
+            <button
+              type="button"
+              class="illustration-tab"
+              data-illustration-group="trpg"
+            >TRPG</button>
+          </div>
+        </div>
+
+        <!-- OCの時だけ表示する小分類 -->
+        <div class="illustration-subtabs" id="illustrationSubtabs">
+          <button
+            type="button"
+            class="illustration-subtab active"
+            data-illustration-category="rp"
+          >ORIGINAL RP PROJECT</button>
+
+          <button
+            type="button"
+            class="illustration-subtab"
+            data-illustration-category="character"
+          >ORIGINAL CHARACTER</button>
+        </div>
+
+        <!-- ここだけカテゴリに応じて入れ替わる -->
+        <div class="illustration-strip" id="illustrationStrip"></div>
+      </div>
+    `;
+
+    const main = document.getElementById("illustrationMain");
+    const mainVisual = document.getElementById("illustrationMainVisual");
+    const mainTitle = document.getElementById("illustrationMainTitle");
+    const mainYear = document.getElementById("illustrationMainYear");
+    const counter = document.getElementById("illustrationCounter");
+    const strip = document.getElementById("illustrationStrip");
+    const subtabs = document.getElementById("illustrationSubtabs");
+    const groupTabs = [...document.querySelectorAll("[data-illustration-group]")];
+    const categoryTabs = [...document.querySelectorAll("[data-illustration-category]")];
+
+    let activeGroup = "oc";
+    let activeCategory = "rp";
+    let visibleWorks = [];
+    let selectedIllustration = 0;
+
+    function getVisibleWorks(){
+      return illustrationWorks.filter(work => {
+        const group = work.group || "oc";
+
+        if(group !== activeGroup) return false;
+
+        if(activeGroup === "oc"){
+          return (work.category || "rp") === activeCategory;
+        }
+
+        return true;
+      });
+    }
+
+    function drawIllustration(index){
+      if(!visibleWorks.length) return;
+
+      selectedIllustration = index;
+      const work = visibleWorks[index];
+
+      mainVisual.innerHTML = work.image
+        ? `<img src="${work.image}" alt="${work.title}">`
+        : `
+          <div class="illustration-main-placeholder">
+            <div class="shape"></div>
+          </div>
+        `;
+
+      mainTitle.textContent =
+        work.title || `WORK ${String(index + 1).padStart(2,"0")}`;
+
+      mainYear.textContent = work.year || "";
+
+      counter.textContent =
+        `${String(index + 1).padStart(2,"0")} / ${String(visibleWorks.length).padStart(2,"0")}`;
+
+      const thumbs = [...strip.querySelectorAll(".illustration-thumb")];
+
+      thumbs.forEach((thumb,i) => {
+        thumb.classList.toggle("active", i === index);
+      });
+
+      thumbs[index]?.scrollIntoView({
+        behavior:"smooth",
+        block:"nearest",
+        inline:"center"
+      });
+    }
+
+    function renderIllustrationStrip(){
+      visibleWorks = getVisibleWorks();
+      selectedIllustration = 0;
+
+      if(visibleWorks.length === 0){
+        strip.innerHTML = `
+          <div class="illustration-empty">NO ILLUSTRATION</div>
+        `;
+
+        mainVisual.innerHTML = `
+          <div class="illustration-main-placeholder">
+            <div class="shape"></div>
+          </div>
+        `;
+        mainTitle.textContent = "NO ILLUSTRATION";
+        mainYear.textContent = "";
+        counter.textContent = "00 / 00";
+        return;
+      }
+
+      strip.innerHTML = visibleWorks.map((w,i) => `
+        <button
+          type="button"
+          class="illustration-thumb ${i === 0 ? "active" : ""}"
+          data-visible-illustration="${i}"
+          aria-label="${w.title}を表示"
+        >
+          ${
+            w.image
+              ? `<img src="${w.image}" alt="${w.title}" ${i === 0 ? "" : 'loading="lazy"'}>`
+              : `
+                <div class="illustration-thumb-placeholder">
+                  <div class="shape"></div>
+                </div>
+              `
+          }
+          <span class="illustration-thumb-label">${w.title}</span>
+        </button>
+      `).join("");
+
+      [...strip.querySelectorAll("[data-visible-illustration]")].forEach(thumb => {
+        thumb.addEventListener("click", () => {
+          drawIllustration(Number(thumb.dataset.visibleIllustration));
+        });
+      });
+
+      drawIllustration(0);
+    }
+
+    function zoomSelectedIllustration(){
+      if(!visibleWorks.length) return;
+
+      const work = visibleWorks[selectedIllustration];
+      const source = work.full || work.image || "";
+
+      if(!source) return;
+      openHighResArtwork(source, work.title || "ILLUSTRATION");
+    }
+
+    function switchGroup(group){
+      activeGroup = group;
+
+      groupTabs.forEach(tab => {
+        tab.classList.toggle(
+          "active",
+          tab.dataset.illustrationGroup === group
+        );
+      });
+
+      /* OCだけサブカテゴリを表示 */
+      subtabs.hidden = group !== "oc";
+
+      renderIllustrationStrip();
+    }
+
+    function switchCategory(category){
+      activeCategory = category;
+
+      categoryTabs.forEach(tab => {
+        tab.classList.toggle(
+          "active",
+          tab.dataset.illustrationCategory === category
+        );
+      });
+
+      renderIllustrationStrip();
+    }
+
+    groupTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        switchGroup(tab.dataset.illustrationGroup);
+      });
+    });
+
+    categoryTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        switchCategory(tab.dataset.illustrationCategory);
+      });
+    });
+
+    main.addEventListener("click", zoomSelectedIllustration);
+
+    main.addEventListener("keydown", e => {
+      if(e.key === "Enter" || e.key === " "){
+        e.preventDefault();
+        zoomSelectedIllustration();
+      }
+    });
+
+    /* 最初は OC → ORIGINAL RP PROJECT */
+    switchGroup("oc");
+  }
+}
+
+
+
+
+
+/* =========================================================
+   STANCE DATA LAZY LOADER
+   STANCEを開いた時だけ data/stance.js を読み込みます。
+   ========================================================= */
+let stanceDataPromise = null;
+let stanceRendered = false;
+
+function loadStanceData(){
+  if(window.STANCE_DATA){
+    return Promise.resolve(window.STANCE_DATA);
+  }
+
+  if(stanceDataPromise){
+    return stanceDataPromise;
+  }
+
+  stanceDataPromise = new Promise((resolve,reject) => {
+    const script = document.createElement("script");
+    script.src = "data/stance.js";
+    script.async = true;
+
+    script.onload = () => {
+      if(!window.STANCE_DATA){
+        stanceDataPromise = null;
+        reject(new Error("data/stance.js の形式が正しくありません。"));
+        return;
+      }
+      resolve(window.STANCE_DATA);
+    };
+
+    script.onerror = () => {
+      stanceDataPromise = null;
+      reject(new Error("data/stance.js を読み込めませんでした。"));
+    };
+
+    document.head.appendChild(script);
+  });
+
+  return stanceDataPromise;
+}
+
+async function renderStance(){
+  if(stanceRendered) return;
+
+  const intro = document.getElementById("stanceIntro");
+  const list = document.getElementById("stanceList");
+
+  try{
+    const data = await loadStanceData();
+
+    intro.innerHTML = `
+      <div class="stance-eyebrow">${data.intro.eyebrow || ""}</div>
+      <h2 class="stance-intro-title">${data.intro.title || "STANCE"}</h2>
+
+      <div class="stance-tags">
+        ${(data.intro.tags || []).map(tag =>
+          `<span class="stance-tag">${tag}</span>`
+        ).join("")}
+      </div>
+
+      <p class="stance-lead">${data.intro.text || ""}</p>
+    `;
+
+    list.innerHTML = (data.sections || []).map(section => `
+      <details class="stance-item ${section.tone === "alert" ? "alert" : ""}">
+        <summary class="stance-summary">
+          <span class="stance-no">${section.no}</span>
+
+          <span class="stance-summary-text">
+            <span class="stance-summary-title">${section.title}</span>
+            <span class="stance-summary-jp">${section.jp || ""}</span>
+          </span>
+
+          <span class="stance-toggle" aria-hidden="true"></span>
+        </summary>
+
+        <div class="stance-body">
+          ${section.content}
+        </div>
+      </details>
+    `).join("");
+
+    /* 一度に開くのは1項目だけ */
+    const details = [...list.querySelectorAll(".stance-item")];
+
+    details.forEach(item => {
+      item.addEventListener("toggle", () => {
+        if(!item.open) return;
+
+        details.forEach(other => {
+          if(other !== item){
+            other.open = false;
+          }
+        });
+      });
+    });
+
+    stanceRendered = true;
+  }catch(error){
+    intro.innerHTML = `
+      <div class="stance-loading">
+        STANCE DATA NOT FOUND<br>
+        <small>data/stance.js を確認してください。</small>
+      </div>
+    `;
+    console.error(error);
+  }
+}
+
+/* =========================================================
+   OC / TRPG DATA LAZY LOADER
+   メニューで開いたデータだけ読み込みます。
+   ========================================================= */
+const CHARACTER_DATA = {
+  oc: null,
+  trpg: null
+};
+
+const CHARACTER_DATA_PROMISE = {
+  oc: null,
+  trpg: null
+};
+
+const CHARACTER_DATA_CONFIG = {
+  oc: {
+    src: "data/oc.js",
+    globalName: "OC_CHARACTERS",
+    gridId: "characterGrid",
+    listHash: "#characters",
+    detailPrefix: "oc-character"
+  },
+  trpg: {
+    src: "data/trpg.js",
+    globalName: "TRPG_CHARACTERS",
+    gridId: "trpgGrid",
+    listHash: "#trpg",
+    detailPrefix: "trpg-character"
+  }
+};
+
+function loadCharacterData(kind){
+  const config = CHARACTER_DATA_CONFIG[kind];
+  if(!config){
+    return Promise.reject(new Error(`Unknown character data: ${kind}`));
+  }
+
+  if(Array.isArray(CHARACTER_DATA[kind])){
+    return Promise.resolve(CHARACTER_DATA[kind]);
+  }
+
+  if(Array.isArray(window[config.globalName])){
+    CHARACTER_DATA[kind] = window[config.globalName];
+    return Promise.resolve(CHARACTER_DATA[kind]);
+  }
+
+  if(CHARACTER_DATA_PROMISE[kind]){
+    return CHARACTER_DATA_PROMISE[kind];
+  }
+
+  CHARACTER_DATA_PROMISE[kind] = new Promise((resolve,reject) => {
+    const script = document.createElement("script");
+    script.src = config.src;
+    script.async = true;
+    script.dataset.characterData = kind;
+
+    script.onload = () => {
+      const loaded = window[config.globalName];
+
+      if(!Array.isArray(loaded)){
+        CHARACTER_DATA_PROMISE[kind] = null;
+        reject(new Error(`${config.src} のデータ形式が正しくありません。`));
+        return;
+      }
+
+      CHARACTER_DATA[kind] = loaded;
+      resolve(CHARACTER_DATA[kind]);
+    };
+
+    script.onerror = () => {
+      CHARACTER_DATA_PROMISE[kind] = null;
+      reject(new Error(`${config.src} を読み込めませんでした。`));
+    };
+
+    document.head.appendChild(script);
+  });
+
+  return CHARACTER_DATA_PROMISE[kind];
+}
+
+function characterGridLoading(kind){
+  const config = CHARACTER_DATA_CONFIG[kind];
+  const grid = document.getElementById(config.gridId);
+
+  grid.innerHTML = `
+    <div style="
+      grid-column:1/-1;
+      padding:70px 20px;
+      text-align:center;
+      font-weight:900;
+      letter-spacing:.14em;
+      color:#777;
+    ">
+      LOADING...
+    </div>
+  `;
+}
+
+function characterGridError(kind, error){
+  const config = CHARACTER_DATA_CONFIG[kind];
+  const grid = document.getElementById(config.gridId);
+
+  grid.innerHTML = `
+    <div style="
+      grid-column:1/-1;
+      padding:60px 20px;
+      text-align:center;
+      line-height:1.9;
+    ">
+      <b>DATA FILE NOT FOUND</b><br>
+      <small>${config.src} を index.html と一緒に置いてください。</small>
+    </div>
+  `;
+
+  console.error(error);
+}
+
+let activeCharacterGroup = "oc";
+let activeOcCharacterCategory = "character";
+
+async function renderCharacterGrid(kind = activeCharacterGroup){
+  const config = CHARACTER_DATA_CONFIG[kind];
+  const grid = document.getElementById("characterGrid");
+
+  grid.innerHTML = `
+    <div class="character-category-empty">
+      LOADING...
+    </div>
+  `;
+
+  try{
+    const characters = await loadCharacterData(kind);
+
+    const visibleCharacters = kind === "oc"
+      ? characters
+          .map((c,index) => ({...c, __originalIndex:index}))
+          .filter(c => (c.category || "character") === activeOcCharacterCategory)
+      : characters.map((c,index) => ({...c, __originalIndex:index}));
+
+    if(visibleCharacters.length === 0){
+      grid.innerHTML = `
+        <div class="character-category-empty">
+          NO CHARACTER
+        </div>
+      `;
+      return;
+    }
+
+    grid.innerHTML = visibleCharacters.map(c => `
+      <a class="char" href="#${config.detailPrefix}-${c.__originalIndex}">
+        <div class="avatar">
+          ${
+            c.icon
+              ? `<img src="${c.icon}" alt="${c.name}">`
+              : avatarPlaceholder(c.__originalIndex)
+          }
+        </div>
+        <b>${c.name || "CHARACTER"}</b>
+        <small>${c.listSub || ""}</small>
+      </a>
+    `).join("");
+  }catch(error){
+    grid.innerHTML = `
+      <div class="character-category-empty">
+        DATA FILE NOT FOUND
+      </div>
+    `;
+    console.error(error);
+  }
+}
+
+/* 大分類：OC / TRPG */
+document.querySelectorAll("[data-character-group]").forEach(tab => {
+  tab.addEventListener("click", async () => {
+    activeCharacterGroup = tab.dataset.characterGroup;
+
+    document.querySelectorAll("[data-character-group]").forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.characterGroup === activeCharacterGroup
+      );
+    });
+
+    const categoryTabs = document.getElementById("characterCategoryTabs");
+    categoryTabs.hidden = activeCharacterGroup !== "oc";
+
+    await renderCharacterGrid(activeCharacterGroup);
+  });
+});
+
+/* OC小分類 */
+document.querySelectorAll("[data-character-category]").forEach(tab => {
+  tab.addEventListener("click", async () => {
+    activeOcCharacterCategory = tab.dataset.characterCategory;
+
+    document.querySelectorAll("[data-character-category]").forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.characterCategory === activeOcCharacterCategory
+      );
+    });
+
+    if(activeCharacterGroup === "oc"){
+      await renderCharacterGrid("oc");
+    }
+  });
+});
+
+function wardrobePlaceholderSvg(label="NO IMAGE", accent="#2f6bff"){
+  return `
+    <svg viewBox="0 0 500 900" aria-hidden="true">
+      <rect width="500" height="900" fill="#fff"/>
+      <rect x="18" y="18" width="464" height="864" fill="${accent}" opacity=".08"/>
+      <circle cx="250" cy="190" r="72" fill="#fff" stroke="#111" stroke-width="9"/>
+      <path d="M178 290 L322 290 L382 590 L118 590 Z" fill="#111"/>
+      <rect x="152" y="570" width="78" height="240" rx="38" fill="#fff" stroke="#111" stroke-width="8"/>
+      <rect x="270" y="570" width="78" height="240" rx="38" fill="#fff" stroke="#111" stroke-width="8"/>
+      <text x="250" y="83" text-anchor="middle"
+            font-size="30" font-family="Arial,sans-serif"
+            font-weight="900" fill="${accent}">${label}</text>
+    </svg>
+  `;
+}
+
+
+/* =========================================================
+   HIGH RES ARTWORK VIEWER
+   - full画像はタップ時だけ読み込む
+   - スマホ：ピンチ拡大 / 1本指ドラッグ / ダブルタップ
+   - PC：ホイール拡大 / ドラッグ
+   ========================================================= */
+const highresViewer = document.getElementById("highresViewer");
+const highresImage = document.getElementById("highresImage");
+const highresTitle = document.getElementById("highresTitle");
+const highresLoading = document.getElementById("highresLoading");
+const highresStage = document.getElementById("highresStage");
+
+let highresZoom = 1;
+let highresPanX = 0;
+let highresPanY = 0;
+let highresBaseWidth = 0;
+let highresBaseHeight = 0;
+
+const activePointers = new Map();
+let dragLastX = 0;
+let dragLastY = 0;
+let pinchStartDistance = 0;
+let pinchStartZoom = 1;
+let lastTapTime = 0;
+
+function clampHighResPan(){
+  const stageW = highresStage.clientWidth || 1;
+  const stageH = highresStage.clientHeight || 1;
+  const scaledW = highresBaseWidth * highresZoom;
+  const scaledH = highresBaseHeight * highresZoom;
+
+  const maxX = Math.max(0, (scaledW - stageW) / 2);
+  const maxY = Math.max(0, (scaledH - stageH) / 2);
+
+  highresPanX = Math.max(-maxX, Math.min(maxX, highresPanX));
+  highresPanY = Math.max(-maxY, Math.min(maxY, highresPanY));
+}
+
+function applyHighResTransform(){
+  highresZoom = Math.max(1, Math.min(6, highresZoom));
+
+  if(highresZoom === 1){
+    highresPanX = 0;
+    highresPanY = 0;
+  }
+
+  clampHighResPan();
+
+  highresImage.style.transform =
+    `translate3d(${highresPanX}px, ${highresPanY}px, 0) scale(${highresZoom})`;
+
+  const resetButton = document.getElementById("highresZoomReset");
+  if(resetButton){
+    resetButton.textContent = `${Math.round(highresZoom * 100)}%`;
+  }
+}
+
+function fitHighResImage(){
+  if(!highresImage.naturalWidth || !highresImage.naturalHeight) return;
+
+  const stageW = Math.max(1, highresStage.clientWidth - 24);
+  const stageH = Math.max(1, highresStage.clientHeight - 24);
+
+  const fit = Math.min(
+    stageW / highresImage.naturalWidth,
+    stageH / highresImage.naturalHeight
+  );
+
+  highresBaseWidth = highresImage.naturalWidth * fit;
+  highresBaseHeight = highresImage.naturalHeight * fit;
+
+  highresImage.style.width = `${highresBaseWidth}px`;
+  highresImage.style.height = `${highresBaseHeight}px`;
+
+  highresPanX = 0;
+  highresPanY = 0;
+  applyHighResTransform();
+}
+
+function setHighResZoom(nextZoom){
+  highresZoom = Math.max(1, Math.min(6, nextZoom));
+  applyHighResTransform();
+}
+
+function openHighResArtwork(src, title){
+  if(!src) return;
+
+  highresZoom = 1;
+  highresPanX = 0;
+  highresPanY = 0;
+  activePointers.clear();
+
+  highresTitle.textContent = title || "ARTWORK";
+  highresLoading.textContent = "LOADING HIGH RES...";
+  highresLoading.hidden = false;
+  highresImage.removeAttribute("src");
+  highresImage.alt = title || "High resolution artwork";
+
+  highresViewer.hidden = false;
+  document.body.classList.add("highres-open");
+
+  /* 高解像度版はここで初めて読み込む */
+  highresImage.src = src;
+}
+
+function closeHighResArtwork(){
+  highresViewer.hidden = true;
+  document.body.classList.remove("highres-open");
+  highresImage.removeAttribute("src");
+
+  highresZoom = 1;
+  highresPanX = 0;
+  highresPanY = 0;
+  activePointers.clear();
+
+  highresImage.style.transform = "";
+}
+
+highresImage.addEventListener("load", () => {
+  highresLoading.hidden = true;
+  requestAnimationFrame(fitHighResImage);
+});
+
+highresImage.addEventListener("error", () => {
+  highresLoading.hidden = false;
+  highresLoading.textContent = "IMAGE NOT FOUND";
+});
+
+document.getElementById("highresClose").addEventListener("click", closeHighResArtwork);
+
+document.getElementById("highresZoomIn").addEventListener("click", () => {
+  setHighResZoom(highresZoom + .5);
+});
+
+document.getElementById("highresZoomOut").addEventListener("click", () => {
+  setHighResZoom(highresZoom - .5);
+});
+
+document.getElementById("highresZoomReset").addEventListener("click", () => {
+  highresZoom = 1;
+  highresPanX = 0;
+  highresPanY = 0;
+  applyHighResTransform();
+});
+
+/* ----- pointer gesture：スマホ・PC共通 ----- */
+function pointerDistance(){
+  const pts = [...activePointers.values()];
+  if(pts.length < 2) return 0;
+  return Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+}
+
+highresStage.addEventListener("pointerdown", e => {
+  if(highresViewer.hidden) return;
+
+  highresStage.setPointerCapture?.(e.pointerId);
+  activePointers.set(e.pointerId, {x:e.clientX, y:e.clientY});
+
+  if(activePointers.size === 1){
+    dragLastX = e.clientX;
+    dragLastY = e.clientY;
+    highresStage.classList.add("dragging");
+
+    /* ダブルタップ：100% ⇄ 250% */
+    if(e.pointerType === "touch"){
+      const now = Date.now();
+      if(now - lastTapTime < 280){
+        if(highresZoom > 1){
+          highresZoom = 1;
+          highresPanX = 0;
+          highresPanY = 0;
+        }else{
+          highresZoom = 2.5;
+        }
+        applyHighResTransform();
+        lastTapTime = 0;
+      }else{
+        lastTapTime = now;
+      }
+    }
+  }
+
+  if(activePointers.size === 2){
+    pinchStartDistance = pointerDistance();
+    pinchStartZoom = highresZoom;
+  }
+});
+
+highresStage.addEventListener("pointermove", e => {
+  if(!activePointers.has(e.pointerId)) return;
+
+  activePointers.set(e.pointerId, {x:e.clientX, y:e.clientY});
+
+  if(activePointers.size >= 2){
+    const distance = pointerDistance();
+
+    if(pinchStartDistance > 0){
+      highresZoom = Math.max(
+        1,
+        Math.min(6, pinchStartZoom * (distance / pinchStartDistance))
+      );
+      applyHighResTransform();
+    }
+
+    return;
+  }
+
+  if(activePointers.size === 1 && highresZoom > 1){
+    const dx = e.clientX - dragLastX;
+    const dy = e.clientY - dragLastY;
+
+    highresPanX += dx;
+    highresPanY += dy;
+
+    dragLastX = e.clientX;
+    dragLastY = e.clientY;
+
+    applyHighResTransform();
+  }else{
+    dragLastX = e.clientX;
+    dragLastY = e.clientY;
+  }
+});
+
+function finishPointer(e){
+  activePointers.delete(e.pointerId);
+
+  if(activePointers.size === 1){
+    const remaining = [...activePointers.values()][0];
+    dragLastX = remaining.x;
+    dragLastY = remaining.y;
+  }
+
+  if(activePointers.size < 2){
+    pinchStartDistance = 0;
+  }
+
+  if(activePointers.size === 0){
+    highresStage.classList.remove("dragging");
+  }
+}
+
+highresStage.addEventListener("pointerup", finishPointer);
+highresStage.addEventListener("pointercancel", finishPointer);
+
+/* PC：ホイールで拡大縮小 */
+highresStage.addEventListener("wheel", e => {
+  if(highresViewer.hidden) return;
+
+  e.preventDefault();
+  const step = e.deltaY < 0 ? .25 : -.25;
+  setHighResZoom(highresZoom + step);
+}, {passive:false});
+
+/* 画面向き・サイズ変更時もフィットし直す */
+window.addEventListener("resize", () => {
+  if(!highresViewer.hidden && highresImage.complete){
+    fitHighResImage();
+  }
+});
+
+/* キーボード */
+document.addEventListener("keydown", e => {
+  if(highresViewer.hidden) return;
+
+  if(e.key === "Escape"){
+    closeHighResArtwork();
+  }else if(e.key === "+" || e.key === "="){
+    setHighResZoom(highresZoom + .5);
+  }else if(e.key === "-"){
+    setHighResZoom(highresZoom - .5);
+  }
+});
+
+function renderCharacter(index, kind="oc") {
+  const characters = Array.isArray(CHARACTER_DATA[kind])
+    ? CHARACTER_DATA[kind]
+    : [];
+
+  const c = characters[index] || characters[0];
+  if(!c) return;
+
+  const config = CHARACTER_DATA_CONFIG[kind];
+  const back = document.getElementById("characterBack");
+  back.href = config.listHash;
+  back.textContent = kind === "trpg" ? "TRPG" : "OC";
+
+  /* キャラクターごとのテーマカラー */
+  const characterPage = document.querySelector('section[data-page="character"]');
+  const themeColor = c.themeColor || "#2f6bff";
+  characterPage.style.setProperty("--character-color", themeColor);
+
+  document.getElementById("characterName").textContent = c.name;
+  document.getElementById("characterSub").textContent = c.sub;
+  document.getElementById("characterText").textContent = c.text;
+
+  document.getElementById("characterSpecs").innerHTML = `
+    <div class="spec"><b>AGE</b>${c.age}</div>
+    <div class="spec"><b>HEIGHT</b>${c.height}</div>
+    <div class="spec"><b>ROLE</b>${c.role}</div>
+    <div class="spec"><b>COLOR</b>${c.color}</div>
+  `;
+
+  const overview = document.getElementById("characterOverview");
+  const editor = document.getElementById("wardrobeEditor");
+  const artworkViewer = document.getElementById("artworkViewer");
+  const videoViewer = document.getElementById("videoViewer");
+  const overviewImage = document.getElementById("characterImage");
+  const openWardrobe = document.getElementById("wardrobeOpen");
+  const openVideo = document.getElementById("videoOpen");
+  const openArtwork = document.getElementById("artworkOpen");
+
+  /* 同じキャラを見ている間はMEDIA画面を作り直さず、
+     MOVIE / MUSICの再生位置を保持します。 */
+  let mediaScreenInitialized = false;
+
+  /* outfits が空なら、従来の images を衣装として扱います */
+  let outfits = Array.isArray(c.outfits)
+    ? c.outfits.filter(Boolean).map((o,i) => ({
+        name: o.name || `STYLE ${String(i+1).padStart(2,"0")}`,
+        image: o.image || "",
+        expressions: Array.isArray(o.expressions) ? o.expressions : []
+      }))
+    : [];
+
+  if(outfits.length === 0){
+    const legacyImages = Array.isArray(c.images) ? c.images.filter(Boolean) : [];
+    const labels = Array.isArray(c.imageLabels) ? c.imageLabels : [];
+
+    outfits = legacyImages.map((img,i) => ({
+      name: labels[i] || `STYLE ${String(i+1).padStart(2,"0")}`,
+      image: img,
+      expressions: []
+    }));
+  }
+
+  /* 画像未設定でも衣装画面自体は確認できるよう、1枠だけ作る */
+  if(outfits.length === 0){
+    outfits = [{
+      name: "OUTFIT 01",
+      image: "",
+      expressions: []
+    }];
+  }
+
+  let currentOutfit = 0;
+  let currentDisplayImage = outfits[0].image || "";
+
+  function renderPicture(target, src, label="NO IMAGE"){
+    target.innerHTML = src
+      ? `<img src="${src}" alt="${c.name}">`
+      : wardrobePlaceholderSvg(label, themeColor);
+  }
+
+  renderPicture(overviewImage, currentDisplayImage, outfits[0].name);
+
+  function renderWardrobe(){
+    editor.innerHTML = `
+      <button class="wardrobe-back" id="wardrobeBack" type="button" aria-label="プロフィールに戻る">←</button>
+
+      <div class="wardrobe-grid">
+        <div class="wardrobe-stage-column">
+          <div class="wardrobe-stage">
+            <div class="wardrobe-stage-inner" id="wardrobeStage"></div>
+          </div>
+
+          <!-- 大きい立ち絵の直下に表情差分 -->
+          <div class="expression-block wardrobe-expression">
+            <div class="expression-title">表情差分</div>
+            <div class="expression-row" id="expressionRow"></div>
+          </div>
+        </div>
+
+        <div class="wardrobe-controls">
+          <div class="wardrobe-heading">
+            <b>OUTFIT</b>
+            <small id="selectedOutfitName"></small>
+          </div>
+
+          <div class="outfit-row" id="outfitRow"></div>
+        </div>
+      </div>
+    `;
+
+    const stage = document.getElementById("wardrobeStage");
+    const outfitRow = document.getElementById("outfitRow");
+    const expressionRow = document.getElementById("expressionRow");
+    const outfitName = document.getElementById("selectedOutfitName");
+
+    function expressionData(outfit){
+      const raw = Array.isArray(outfit.expressions) ? outfit.expressions : [];
+
+      if(raw.length === 0){
+        return [{
+          name: "DEFAULT",
+          image: outfit.image || ""
+        }];
+      }
+
+      return raw.map((e,i) => {
+        if(typeof e === "string"){
+          return {
+            name: `FACE ${String(i+1).padStart(2,"0")}`,
+            image: e
+          };
+        }
+
+        return {
+          name: e.name || `FACE ${String(i+1).padStart(2,"0")}`,
+          image: e.image || outfit.image || ""
+        };
+      });
+    }
+
+    function setStage(src, label){
+      currentDisplayImage = src || "";
+      renderPicture(stage, currentDisplayImage, label);
+      renderPicture(overviewImage, currentDisplayImage, label);
+    }
+
+    function renderExpressions(outfit){
+      const expressions = expressionData(outfit);
+
+      expressionRow.innerHTML = expressions.map((exp,i) => `
+        <button
+          class="expression-card ${i === 0 ? "active" : ""}"
+          type="button"
+          data-expression="${i}"
+          title="${exp.name}"
+          aria-label="${exp.name}"
+        >
+          ${
+            exp.image
+              ? `<img src="${exp.image}" alt="${exp.name}" ${i === 0 ? "" : 'loading="lazy"'}>`
+              : wardrobePlaceholderSvg(exp.name, themeColor)
+          }
+        </button>
+      `).join("");
+
+      expressionRow.querySelectorAll(".expression-card").forEach(button => {
+        button.addEventListener("click", () => {
+          const i = Number(button.dataset.expression);
+          const exp = expressions[i];
+
+          expressionRow.querySelectorAll(".expression-card").forEach(b =>
+            b.classList.toggle("active", b === button)
+          );
+
+          setStage(exp.image || outfit.image, exp.name);
+        });
+      });
+    }
+
+    function selectOutfit(index){
+      currentOutfit = index;
+      const outfit = outfits[currentOutfit];
+
+      outfitName.textContent = outfit.name;
+
+      outfitRow.querySelectorAll(".outfit-card").forEach((card,i) =>
+        card.classList.toggle("active", i === currentOutfit)
+      );
+
+      setStage(outfit.image, outfit.name);
+      renderExpressions(outfit);
+
+      outfitRow.querySelector(`[data-outfit="${currentOutfit}"]`)?.scrollIntoView({
+        behavior:"smooth",
+        block:"nearest",
+        inline:"center"
+      });
+    }
+
+    outfitRow.innerHTML = outfits.map((outfit,i) => `
+      <button
+        class="outfit-card ${i === 0 ? "active" : ""}"
+        type="button"
+        data-outfit="${i}"
+        aria-label="${outfit.name}を表示"
+      >
+        <div class="outfit-picture">
+          ${
+            outfit.image
+              ? `<img src="${outfit.image}" alt="${outfit.name}" ${i === 0 ? "" : 'loading="lazy"'}>`
+              : wardrobePlaceholderSvg(outfit.name, themeColor)
+          }
+        </div>
+        <div class="outfit-name">${outfit.name}</div>
+      </button>
+    `).join("");
+
+    outfitRow.querySelectorAll(".outfit-card").forEach(card => {
+      card.addEventListener("click", () => {
+        selectOutfit(Number(card.dataset.outfit));
+      });
+    });
+
+    document.getElementById("wardrobeBack").addEventListener("click", () => {
+      editor.hidden = true;
+      overview.hidden = false;
+      window.scrollTo({top:0,behavior:"smooth"});
+    });
+
+    selectOutfit(currentOutfit);
+  }
+
+  openWardrobe.onclick = () => {
+    renderWardrobe();
+    artworkViewer.hidden = true;
+    videoViewer.hidden = true;
+    overview.hidden = true;
+    editor.hidden = false;
+    window.scrollTo({top:0,behavior:"smooth"});
+  };
+
+  /* ===== イラスト・作品 ===== */
+  function renderArtworks(){
+    const raw = Array.isArray(c.artworks) ? c.artworks.filter(Boolean) : [];
+    const artworks = raw.length
+      ? raw.map((a,i) => ({
+          title: a.title || `ARTWORK ${String(i+1).padStart(2,"0")}`,
+          image: a.image || "",
+          full: a.full || a.image || ""
+        }))
+      : [
+          { title: "ARTWORK 01", image: "", full: "" }
+        ];
+
+    artworkViewer.innerHTML = `
+      <button class="artwork-back" id="artworkBack" type="button" aria-label="プロフィールに戻る">←</button>
+
+      <div class="artwork-head">
+        <b>ILLUSTRATION / WORKS</b>
+        <span class="artwork-counter" id="artworkCounter">
+          01 / ${String(artworks.length).padStart(2,"0")}
+        </span>
+      </div>
+
+      <div class="artwork-track" id="artworkTrack">
+        ${artworks.map((art,i) => `
+          <article class="artwork-slide">
+            <div
+              class="artwork-frame"
+              data-art-index="${i}"
+              role="button"
+              tabindex="0"
+              aria-label="${art.title}を高画質で表示"
+            >
+              ${
+                art.image
+                  ? `<img src="${art.image}" alt="${art.title}" ${i === 0 ? "" : 'loading="lazy"'}>`
+                  : `<div class="artwork-placeholder">${art.title}</div>`
+              }
+              <div class="artwork-caption">${art.title}</div>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+
+      <div class="artwork-dots" id="artworkDots">
+        ${artworks.map((_,i) => `
+          <button
+            type="button"
+            class="artwork-dot ${i === 0 ? "active" : ""}"
+            data-art="${i}"
+            aria-label="${i+1}枚目を表示"
+          ></button>
+        `).join("")}
+      </div>
+    `;
+
+    const track = document.getElementById("artworkTrack");
+    const counter = document.getElementById("artworkCounter");
+    const dots = [...document.querySelectorAll("#artworkDots .artwork-dot")];
+
+    function updateArtworkPosition(){
+      const width = track.clientWidth || 1;
+      const index = Math.max(
+        0,
+        Math.min(artworks.length - 1, Math.round(track.scrollLeft / width))
+      );
+
+      counter.textContent =
+        `${String(index + 1).padStart(2,"0")} / ${String(artworks.length).padStart(2,"0")}`;
+
+      dots.forEach((dot,i) => {
+        dot.classList.toggle("active", i === index);
+      });
+    }
+
+    track.addEventListener("scroll", updateArtworkPosition, { passive:true });
+
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        const index = Number(dot.dataset.art);
+        track.scrollTo({
+          left: track.clientWidth * index,
+          behavior:"smooth"
+        });
+      });
+    });
+
+    document.getElementById("artworkBack").addEventListener("click", () => {
+      artworkViewer.hidden = true;
+      overview.hidden = false;
+      window.scrollTo({top:0,behavior:"smooth"});
+    });
+
+    /* 高解像度画像はここで初めて読み込みます */
+    artworkViewer.querySelectorAll(".artwork-frame").forEach(frame => {
+      const openThisArtwork = () => {
+        const index = Number(frame.dataset.artIndex);
+        const art = artworks[index];
+
+        if(!art.full){
+          return;
+        }
+
+        openHighResArtwork(art.full, art.title);
+      };
+
+      frame.addEventListener("click", openThisArtwork);
+
+      frame.addEventListener("keydown", e => {
+        if(e.key === "Enter" || e.key === " "){
+          e.preventDefault();
+          openThisArtwork();
+        }
+      });
+    });
+  }
+
+  openArtwork.onclick = () => {
+    renderArtworks();
+    editor.hidden = true;
+    videoViewer.hidden = true;
+    overview.hidden = true;
+    artworkViewer.hidden = false;
+    window.scrollTo({top:0,behavior:"smooth"});
+  };
+
+  /* ===== MOVIE / MUSIC 画面 ===== */
+  const videos = Array.isArray(c.videos) ? c.videos : [];
+  const tracks = Array.isArray(c.music) ? c.music : [];
+
+  function getYoutubeId(url){
+    if(!url) return "";
+    const m = url.match(/(?:embed\/|youtu\.be\/|v=)([A-Za-z0-9_-]{6,})/);
+    return m ? m[1] : "";
+  }
+
+  function renderMediaScreen(){
+    function videoPreviewHtml(v,i){
+      return `
+        <button
+          type="button"
+          class="video-preview ${v.poster ? "" : "no-poster"}"
+          data-screen-video="${i}"
+          aria-label="${v.title} を再生"
+        >
+          ${
+            v.poster
+              ? `<img src="${v.poster}" alt="${v.title} のサムネイル" loading="lazy">`
+              : `<span>ORIGINAL VIDEO</span>`
+          }
+        </button>
+      `;
+    }
+
+    function musicPreviewHtml(m,i){
+      const videoId = getYoutubeId(m.embedUrl);
+      const thumb = videoId
+        ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+        : "";
+
+      return `
+        <button
+          type="button"
+          class="youtube-preview"
+          data-screen-music="${i}"
+          aria-label="${m.title} を再生"
+        >
+          ${
+            thumb
+              ? `<img src="${thumb}" alt="${m.title} のYouTubeサムネイル" loading="lazy">`
+              : `<span style="color:#fff;">YOUTUBE</span>`
+          }
+        </button>
+      `;
+    }
+
+    videoViewer.innerHTML = `
+      <button class="video-screen-back" id="videoScreenBack" type="button" aria-label="プロフィールに戻る">←</button>
+
+      <div class="media-screen-tabs">
+        <button class="media-screen-tab active" type="button" data-media-tab="movie">MOVIE</button>
+        <button class="media-screen-tab" type="button" data-media-tab="music">MUSIC</button>
+      </div>
+
+      <div class="media-panel active" id="moviePanel">
+        <div class="video-screen-head">
+          <b>MOVIE / ORIGINAL VIDEO</b>
+          <span class="video-screen-count" id="videoScreenCounter">
+            ${videos.length ? `01 / ${String(videos.length).padStart(2,"0")}` : "00 / 00"}
+          </span>
+        </div>
+
+        ${
+          videos.length
+            ? `
+              <div class="video-screen-track" id="videoScreenTrack">
+                ${videos.map((v,i) => `
+                  <section class="video-screen-slide">
+                    <article class="video-screen-card">
+                      <div class="video-meta">
+                        <div class="video-title">${v.title}</div>
+                        <div class="video-sub">${v.sub || "ORIGINAL VIDEO"}</div>
+                      </div>
+
+                      <div class="video-wrap" id="screenVideo-${i}">
+                        ${videoPreviewHtml(v,i)}
+                      </div>
+                    </article>
+                  </section>
+                `).join("")}
+              </div>
+
+              ${
+                videos.length > 1
+                  ? `
+                    <div class="video-screen-dots" id="videoScreenDots">
+                      ${videos.map((_,i) => `
+                        <button
+                          type="button"
+                          class="video-screen-dot ${i === 0 ? "active" : ""}"
+                          data-video-screen-index="${i}"
+                          aria-label="${i + 1}本目を表示"
+                        ></button>
+                      `).join("")}
+                    </div>
+                  `
+                  : ""
+              }
+            `
+            : `
+              <div class="video-screen-track">
+                <section class="video-screen-slide">
+                  <div class="video-screen-empty">NO MOVIE</div>
+                </section>
+              </div>
+            `
+        }
+      </div>
+
+      <div class="media-panel" id="musicPanel">
+        <div class="video-screen-head">
+          <b>MUSIC / CHARACTER SONGS</b>
+          <span class="video-screen-count" id="musicScreenCounter">
+            ${tracks.length ? `01 / ${String(tracks.length).padStart(2,"0")}` : "00 / 00"}
+          </span>
+        </div>
+
+        ${
+          tracks.length
+            ? `
+              <div class="music-screen-track" id="musicScreenTrack">
+                ${tracks.map((m,i) => `
+                  <section class="music-screen-slide">
+                    <article class="music-screen-card">
+                      <div class="music-meta">
+                        <div class="music-title">${m.title}</div>
+                        <div class="music-artist">${m.artist || ""}</div>
+                      </div>
+
+                      <div class="youtube-wrap" id="screenMusic-${i}">
+                        ${musicPreviewHtml(m,i)}
+                      </div>
+                    </article>
+                  </section>
+                `).join("")}
+              </div>
+
+              ${
+                tracks.length > 1
+                  ? `
+                    <div class="music-screen-dots" id="musicScreenDots">
+                      ${tracks.map((_,i) => `
+                        <button
+                          type="button"
+                          class="music-screen-dot ${i === 0 ? "active" : ""}"
+                          data-music-screen-index="${i}"
+                          aria-label="${i + 1}曲目を表示"
+                        ></button>
+                      `).join("")}
+                    </div>
+                  `
+                  : ""
+              }
+            `
+            : `
+              <div class="music-screen-track">
+                <section class="music-screen-slide">
+                  <div class="music-screen-empty">NO MUSIC</div>
+                </section>
+              </div>
+            `
+        }
+      </div>
+    `;
+
+    const moviePanel = document.getElementById("moviePanel");
+    const musicPanel = document.getElementById("musicPanel");
+    const tabs = [...videoViewer.querySelectorAll("[data-media-tab]")];
+
+    /*
+      再生中メディアを一時停止します。
+      再生位置は0秒に戻さず、そのまま保持します。
+    */
+    function pauseAllMediaPreservePosition(){
+      videoViewer.querySelectorAll("video").forEach(video => {
+        try{
+          video.pause();
+        }catch(e){}
+      });
+
+      videoViewer.querySelectorAll("iframe").forEach(iframe => {
+        try{
+          iframe.contentWindow?.postMessage(
+            JSON.stringify({
+              event:"command",
+              func:"pauseVideo",
+              args:[]
+            }),
+            "*"
+          );
+        }catch(e){}
+      });
+    }
+
+    function switchMediaTab(tab){
+      /* MOVIE ↔ MUSIC切替時は一時停止。再生位置は保持 */
+      pauseAllMediaPreservePosition();
+
+      tabs.forEach(button => {
+        button.classList.toggle("active", button.dataset.mediaTab === tab);
+      });
+
+      moviePanel.classList.toggle("active", tab === "movie");
+      musicPanel.classList.toggle("active", tab === "music");
+    }
+
+    tabs.forEach(button => {
+      button.addEventListener("click", () => {
+        switchMediaTab(button.dataset.mediaTab);
+      });
+    });
+
+    /*
+      再生ボタンはイベント委譲。
+      サムネイルを再生成しても、そのまま再生ボタンが動きます。
+    */
+    videoViewer.addEventListener("click", event => {
+      const videoButton = event.target.closest("[data-screen-video]");
+
+      if(videoButton){
+        const i = Number(videoButton.dataset.screenVideo);
+        const video = videos[i];
+        const wrap = document.getElementById(`screenVideo-${i}`);
+
+        /* 新しい動画を再生する前に、それまでの動画・音楽を一時停止（位置保持） */
+        pauseAllMediaPreservePosition();
+
+        if(!video.file){
+          wrap.innerHTML = `
+            <div class="video-preview no-poster" style="display:grid;place-items:center;color:#fff;">
+              <span>VIDEO FILE NOT SET</span>
+            </div>
+          `;
+          return;
+        }
+
+        wrap.innerHTML = `
+          <video controls autoplay playsinline preload="metadata">
+            <source src="${video.file}" type="video/mp4">
+            このブラウザでは動画を再生できません。
+          </video>
+        `;
+        return;
+      }
+
+      const musicButton = event.target.closest("[data-screen-music]");
+
+      if(musicButton){
+        const i = Number(musicButton.dataset.screenMusic);
+        const music = tracks[i];
+        const wrap = document.getElementById(`screenMusic-${i}`);
+
+        /* 新しい曲を再生する前に、それまでの動画・音楽を一時停止（位置保持） */
+        pauseAllMediaPreservePosition();
+
+        if(!music.embedUrl){
+          wrap.innerHTML = `
+            <div style="display:grid;place-items:center;width:100%;height:100%;color:#fff;">
+              YOUTUBE URL NOT SET
+            </div>
+          `;
+          return;
+        }
+
+        const join = music.embedUrl.includes("?") ? "&" : "?";
+
+        wrap.innerHTML = `
+          <iframe
+            src="${music.embedUrl}${join}autoplay=1&enablejsapi=1"
+            title="${music.title}"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        `;
+      }
+    });
+
+    /* MOVIE 横スワイプ */
+    if(videos.length){
+      const track = document.getElementById("videoScreenTrack");
+      const counter = document.getElementById("videoScreenCounter");
+      const dots = [...videoViewer.querySelectorAll("#videoScreenDots .video-screen-dot")];
+      let lastVideoIndex = 0;
+
+      function updateVideoScreen(){
+        const width = track.clientWidth || 1;
+        const index = Math.max(
+          0,
+          Math.min(videos.length - 1, Math.round(track.scrollLeft / width))
+        );
+
+        if(index !== lastVideoIndex){
+          /* 別の動画へスワイプした時も一時停止。再生位置は保持 */
+          pauseAllMediaPreservePosition();
+          lastVideoIndex = index;
+        }
+
+        counter.textContent =
+          `${String(index + 1).padStart(2,"0")} / ${String(videos.length).padStart(2,"0")}`;
+
+        dots.forEach((dot,i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      }
+
+      track.addEventListener("scroll", updateVideoScreen, { passive:true });
+
+      dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+          pauseAllMediaPreservePosition();
+
+          const index = Number(dot.dataset.videoScreenIndex);
+          lastVideoIndex = index;
+
+          track.scrollTo({
+            left: track.clientWidth * index,
+            behavior:"smooth"
+          });
+        });
+      });
+    }
+
+    /* MUSIC 横スワイプ */
+    if(tracks.length){
+      const track = document.getElementById("musicScreenTrack");
+      const counter = document.getElementById("musicScreenCounter");
+      const dots = [...videoViewer.querySelectorAll("#musicScreenDots .music-screen-dot")];
+      let lastMusicIndex = 0;
+
+      function updateMusicScreen(){
+        const width = track.clientWidth || 1;
+        const index = Math.max(
+          0,
+          Math.min(tracks.length - 1, Math.round(track.scrollLeft / width))
+        );
+
+        if(index !== lastMusicIndex){
+          /* 別の曲へスワイプした時も一時停止。再生位置は保持 */
+          pauseAllMediaPreservePosition();
+          lastMusicIndex = index;
+        }
+
+        counter.textContent =
+          `${String(index + 1).padStart(2,"0")} / ${String(tracks.length).padStart(2,"0")}`;
+
+        dots.forEach((dot,i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      }
+
+      track.addEventListener("scroll", updateMusicScreen, { passive:true });
+
+      dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+          pauseAllMediaPreservePosition();
+
+          const index = Number(dot.dataset.musicScreenIndex);
+          lastMusicIndex = index;
+
+          track.scrollTo({
+            left: track.clientWidth * index,
+            behavior:"smooth"
+          });
+        });
+      });
+    }
+
+    document.getElementById("videoScreenBack").addEventListener("click", () => {
+      /* プロフィールへ戻る時だけは完全リセット。
+         次にMEDIA画面を開いた時は最初からになります。 */
+      pauseAllMediaPreservePosition();
+
+      videoViewer.innerHTML = "";
+      mediaScreenInitialized = false;
+
+      videoViewer.hidden = true;
+      overview.hidden = false;
+      window.scrollTo({top:0,behavior:"smooth"});
+    });
+  }
+  openVideo.onclick = () => {
+    if(!mediaScreenInitialized){
+      renderMediaScreen();
+      mediaScreenInitialized = true;
+    }
+
+    editor.hidden = true;
+    artworkViewer.hidden = true;
+    overview.hidden = true;
+    videoViewer.hidden = false;
+    window.scrollTo({top:0,behavior:"smooth"});
+  };
+}
+
+async function showPage() {
+
+  /* ページ移動時も、再生位置を残したまま一時停止 */
+  document.querySelectorAll("#videoViewer video").forEach(video => {
+    try{
+      video.pause();
+    }catch(e){}
+  });
+
+  document.querySelectorAll("#videoViewer iframe").forEach(iframe => {
+    try{
+      iframe.contentWindow?.postMessage(
+        JSON.stringify({
+          event:"command",
+          func:"pauseVideo",
+          args:[]
+        }),
+        "*"
+      );
+    }catch(e){}
+  });
+
+  const hash = location.hash || "#home";
+  let page = hash.slice(1);
+
+  /* OC詳細 */
+  if(page.startsWith("oc-character-")){
+    const index = Number(page.replace("oc-character-",""));
+
+    try{
+      await loadCharacterData("oc");
+      renderCharacter(index,"oc");
+      page = "character";
+    }catch(error){
+      console.error(error);
+      page = "characters";
+      characterGridError("oc",error);
+    }
+  }
+
+  /* TRPG詳細 */
+  else if(page.startsWith("trpg-character-")){
+    const index = Number(page.replace("trpg-character-",""));
+
+    try{
+      await loadCharacterData("trpg");
+      renderCharacter(index,"trpg");
+      page = "character";
+    }catch(error){
+      console.error(error);
+      page = "trpg";
+      characterGridError("trpg",error);
+    }
+  }
+
+  const valid = ["home","characters","trpg","character","works","contact"];
+  const target = valid.includes(page) ? page : "home";
+
+  document.querySelectorAll(".view").forEach(v =>
+    v.classList.toggle("active", v.dataset.page === target)
+  );
+
+  closeMenu();
+  window.scrollTo(0,0);
+
+  /* 一覧ページを開いた時だけ対応するJSを読み込む */
+  if(target === "characters"){
+    await renderCharacterGrid(activeCharacterGroup);
+  }else if(target === "trpg"){
+    /* メニューのTRPGを押した時も、同じOC一覧画面のTRPGタブへ寄せる */
+    activeCharacterGroup = "trpg";
+
+    document.querySelectorAll("[data-character-group]").forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.characterGroup === "trpg"
+      );
+    });
+
+    const categoryTabs = document.getElementById("characterCategoryTabs");
+    if(categoryTabs) categoryTabs.hidden = true;
+
+    document.querySelectorAll(".view").forEach(v =>
+      v.classList.toggle("active", v.dataset.page === "characters")
+    );
+
+    await renderCharacterGrid("trpg");
+  }else if(target === "contact"){
+    await renderStance();
+  }
+}
+
+renderSite();
+window.addEventListener("hashchange",showPage);
+showPage();
+</script>
+
+</body>
+</html>
